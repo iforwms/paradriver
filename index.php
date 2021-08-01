@@ -1,17 +1,27 @@
 <?php
-$presets = json_decode(file_get_contents(__DIR__ . "/presets.json"), true); ?>
+$data = [];
+$entries = json_decode(file_get_contents(__DIR__ . "/presets.json"), true);
+foreach ($entries as $entry) {
+    $data[$entry["instrument"]][] = $entry;
+}
+?>
 
 <!doctype html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Para Driver Presets</title>
 <style>
 body {
-color: #f3c200;
+background-color: #f9f9f9;
+color: #282a2e;
 padding: 0;
 margin: 0;
 font-family: sans-serif;
 font-weight: 600;
+}
+.paradriver {
+color: #f3c200;
 }
 .button {
 margin-left: .5em;
@@ -60,20 +70,47 @@ label {
 font-size: .9em;
 text-transform: uppercase;
 }
-h2 {
+h2, h3{
 margin-top: 0;
 text-transform: uppercase;
 font-size: 1.1em;
 margin-bottom: .25em;
 color: #282a2e;
 }
+h2 {
+background-color: #4980ee;
+padding: 1em;
+font-size: .7em;
+margin-top: 1em;
+color: #fff;
+margin-bottom: 0;
+}
+h4 {
+margin-top: .5em;
+margin-bottom: .5em;
+font-size: .8em;
+color: #282a2e;
+}
 </style>
 </head>
 <body>
+<?php foreach ($data as $instrument => $presets): ?>
+<h2><?= $instrument ?></h2>
+
 <?php foreach ($presets as $preset): ?>
-<div style="padding: 1em;">
-    <?php include __DIR__ . "/pedal.blade.php"; ?>
+<div style="margin: 1em; border: 1px solid #d5d5d5; border-radius: 4px; padding: 1em;">
+    <h3><?= $preset['name'] ?></h3>
+    <div style="display: flex;">
+    <?php foreach($preset['pedals'] as $pedal): ?>
+        <?php if(file_exists(__DIR__ . "/templates/pedals/{$pedal['id']}.blade.php")): ?>
+            <?php include __DIR__ . "/templates/pedals/{$pedal['id']}.blade.php"; ?>
+        <?php else: ?>
+            <?php include __DIR__ . "/templates/pedals/missing.blade.php"; ?>
+        <?php endif; ?>
+    <?php endforeach; ?>
+    </div>
 </div>
+<?php endforeach; ?>
 <?php endforeach; ?>
 </body>
 </html>
