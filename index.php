@@ -10,7 +10,7 @@ foreach ($entries as $entry) {
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Para Driver Presets</title>
+<title>Pedal Board Presets</title>
 <style>
 body {
 background-color: #f9f9f9;
