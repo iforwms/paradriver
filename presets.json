@@ -2,7 +2,17 @@
   {
     "name": "Clean Bass",
     "instrument": "bass",
-    "pedals": [
+    "chain": [
+      {
+        "id": "fender_jazz",
+        "name": "Fender Jazz Bass",
+        "type": "guitar",
+        "settings": {
+          "neck_pickup": 270,
+          "bridge_pickup": 270,
+          "tone": 15
+        }
+      },
       {
         "id": "mxr87",
         "name": "MXR Compressor",
@@ -36,7 +46,7 @@
   {
     "name": "Clean acoustic",
     "instrument": "acoustic",
-    "pedals": [
+    "chain": [
       {
         "id": "paradriver",
         "name": "Para Driver DI",

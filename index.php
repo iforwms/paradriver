@@ -46,6 +46,9 @@ border-radius: 48px;
 border: 1px solid #000;
 position: relative;
 }
+.fender_jazz label {
+color: #301803;
+}
 .indicator {
 width: 3px;
 background-color: #f3c200;
@@ -101,7 +104,7 @@ color: #282a2e;
 <div style="margin: 1em; border: 1px solid #d5d5d5; border-radius: 4px; padding: 1em;">
     <h3><?= $preset['name'] ?></h3>
     <div style="display: flex;">
-    <?php foreach($preset['pedals'] as $pedal): ?>
+    <?php foreach($preset['chain'] as $pedal): ?>
         <?php if(file_exists(__DIR__ . "/templates/pedals/{$pedal['id']}.blade.php")): ?>
             <?php include __DIR__ . "/templates/pedals/{$pedal['id']}.blade.php"; ?>
         <?php else: ?>

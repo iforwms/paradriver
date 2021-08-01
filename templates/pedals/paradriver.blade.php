@@ -1,3 +1,5 @@
+<?php $knob_colour = "#171717"; ?>
+
 <div class="paradriver">
     <h4><?= $pedal['name']; ?></h4>
 

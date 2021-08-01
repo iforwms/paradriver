@@ -1,3 +1,5 @@
+<?php $knob_colour = "#000"; ?>
+
 <div>
     <h4><?= $pedal['name']; ?></h4>
 
