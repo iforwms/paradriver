@@ -1,0 +1,15 @@
+[
+  {
+    "name": "Clean acoustic",
+    "instrument": "acoustic",
+    "level": 270,
+    "treble": 60,
+    "mid": 15,
+    "bass": 45,
+    "drive": 240,
+    "blend": 30,
+    "mid_shift": 75,
+    "rumble": 0,
+    "air": 1
+  }
+]
