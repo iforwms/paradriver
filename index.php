@@ -46,6 +46,9 @@ border-radius: 48px;
 border: 1px solid #000;
 position: relative;
 }
+.fender_strat label {
+color: #6a6447;
+}
 .fender_jazz label {
 color: #301803;
 }
