@@ -1,7 +1,6 @@
 [
   {
-    "name": "Clean Bass",
-    "instrument": "bass",
+    "name": "Available Instruments",
     "chain": [
       {
         "id": "les_paul",
@@ -35,33 +34,6 @@
         }
       },
       {
-        "id": "mooer_delay",
-        "name": "Delay",
-        "type": "delay",
-        "settings": {
-          "time": 270,
-          "feedback": 270,
-          "level": 15,
-          "tempo": "1/8th note triplets"
-        }
-      },
-      {
-        "id": "mooer_reverb",
-        "name": "Reverb",
-        "type": "reverb",
-        "settings": {
-          "tone": 150,
-          "decay": 150,
-          "mix": 150,
-          "tempo": 150
-        }
-      },
-      {
-        "id": "wah",
-        "name": "Wah",
-        "type": "wah"
-      },
-      {
         "id": "acoustic",
         "name": "Acoustic",
         "type": "guitar",
@@ -72,40 +44,9 @@
         }
       },
       {
-        "id": "marshall_clean",
-        "name": "Marshall Clean",
-        "type": "amp_simulator",
-        "settings": {
-          "treble": 270,
-          "mid": 270,
-          "bass": 15,
-          "volume": 15,
-          "gain": 15
-        }
-      },
-      {
-        "id": "marshall_cab",
-        "name": "Marshall Cab",
-        "type": "amp_simulator",
-        "settings": {
-          "treble": 270,
-          "mid": 270,
-          "bass": 15,
-          "volume": 15,
-          "gain": 15
-        }
-      },
-      {
-        "id": "marshall_dirty",
-        "name": "Marshall Dirty",
-        "type": "amp_simulator",
-        "settings": {
-          "treble": 270,
-          "mid": 270,
-          "bass": 15,
-          "volume": 15,
-          "gain": 15
-        }
+        "id": "wah",
+        "name": "Wah",
+        "type": "wah"
       },
       {
         "id": "mxr87",
@@ -134,27 +75,63 @@
           "rumble": 0,
           "air": 1
         }
-      }
-    ]
-  },
-  {
-    "name": "Clean acoustic",
-    "instrument": "acoustic",
-    "chain": [
+      },
       {
-        "id": "paradriver",
-        "name": "Para Driver DI",
-        "type": "di",
+        "id": "mooer_delay",
+        "name": "Delay",
+        "type": "delay",
         "settings": {
-          "level": 270,
-          "treble": 60,
-          "mid": 15,
-          "bass": 45,
-          "drive": 240,
-          "blend": 30,
-          "mid_shift": 75,
-          "rumble": 0,
-          "air": 1
+          "time": 270,
+          "feedback": 270,
+          "level": 15,
+          "tempo": "1/8th note triplets"
+        }
+      },
+      {
+        "id": "mooer_reverb",
+        "name": "Reverb",
+        "type": "reverb",
+        "settings": {
+          "tone": 150,
+          "decay": 150,
+          "mix": 150,
+          "tempo": 150
+        }
+      },
+      {
+        "id": "marshall_clean",
+        "name": "Marshall Clean",
+        "type": "amp_simulator",
+        "settings": {
+          "treble": 270,
+          "mid": 270,
+          "bass": 15,
+          "volume": 15,
+          "gain": 15
+        }
+      },
+      {
+        "id": "marshall_dirty",
+        "name": "Marshall Dirty",
+        "type": "amp_simulator",
+        "settings": {
+          "treble": 270,
+          "mid": 270,
+          "bass": 15,
+          "volume": 15,
+          "gain": 15
+        }
+      },
+      {
+        "id": "marshall_cab",
+        "name": "Marshall Cab",
+        "type": "amp_simulator",
+        "settings": {
+          "treble": 270,
+          "mid": 270,
+          "bass": 15,
+          "volume": 15,
+          "gain": 15
         }
       }
     ]

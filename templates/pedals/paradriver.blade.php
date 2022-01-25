@@ -3,7 +3,7 @@
 <div class="paradriver">
     <h4><?= $pedal['name']; ?></h4>
 
-    <div class="box">
+    <div class="box" style="margin-right: 2em;">
         <div style="display: flex;">
             <?php $indicator_colour = "#f3c200"; $title = "Level"; $value = $pedal['settings']['level']; include __DIR__ . "/../knob.blade.php"; ?>
             <?php $title = "Treble"; $value = $pedal['settings']['treble']; include __DIR__ . "/../knob.blade.php"; ?>
