@@ -42,7 +42,7 @@ if(isset($_GET['song'])) {
 
     <?php if(!is_null($query_song)): ?>
         <div style="margin: 1em; border: 1px solid #aaa; border-radius: 4px;">
-            <h3 style="border-top-left-radius 3px; border-top-right-radius: 3px; padding: 1em; background-color: #255ee3; margin-bottom: 0; color: #fff;"><?= $query_song["name"] ?></h3>
+        <h3 style="border-top-left-radius 3px; border-top-right-radius: 3px; padding: 1em; background-color: #255ee3; margin-bottom: 0; color: #fff;"><?= $query_song["name"] ?><?= isset($query_song['time_Signature']) ? " - {$query_song['time_Signature']}" : "" ?><?= isset($query_song['tempo']) ? " - {$query_song['tempo']} bpm" : "" ?></h3>
             <div style="padding: 1em; display: flex; flex-wrap: wrap;">
             <?php foreach ($query_song["chain"] as $pedal): ?>
                 <?php if (
