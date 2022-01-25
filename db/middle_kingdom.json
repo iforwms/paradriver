@@ -57,7 +57,7 @@
         },
         {
             "id": "marshall_dirty",
-            "name": "Marshall Dirty",
+            "name": "Marshall Dirty (Solo)",
             "type": "amp_simulator",
             "settings": {
                 "treble": 270,
