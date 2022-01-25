@@ -13,7 +13,7 @@ foreach($db as $song) {
     $data[] = json_decode(file_get_contents("{$db_path}/{$song}"), true);
 }
 
-$query_song = null;
+$query_song = $data[0];
 if(isset($_GET['song'])) {
     $songs = array_values(array_filter($data, function($item) {
         return $item['name'] === $_GET['song'];
