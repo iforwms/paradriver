@@ -39,9 +39,10 @@
         "name": "Delay",
         "type": "delay",
         "settings": {
-          "neck_pickup": 270,
-          "bridge_pickup": 270,
-          "tone": 15
+          "time": 270,
+          "feedback": 270,
+          "level": 15,
+          "tempo": "1/8th note triplets"
         }
       },
       {
@@ -49,9 +50,10 @@
         "name": "Reverb",
         "type": "reverb",
         "settings": {
-          "neck_pickup": 270,
-          "bridge_pickup": 270,
-          "tone": 15
+          "tone": 150,
+          "decay": 150,
+          "mix": 150,
+          "tempo": 150
         }
       },
       {

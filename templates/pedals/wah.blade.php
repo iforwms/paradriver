@@ -3,17 +3,8 @@
 <div>
     <h4><?= $pedal['name']; ?></h4>
 
-    <div style="margin-right: 2em; flex-direction: column; text-align: center; line-height: 1.5; background-color: #fff; border: 2px solid #333; color: #333; display: flex; justify-content: center; align-items: center; border-radius: 12px; padding: 1em;">
-        <div style="display: flex;">
-            <?php $title = "Release"; $value = $pedal['settings']['release']; $indicator_colour = "#fff"; include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Attack"; $value = $pedal['settings']['attack']; $indicator_colour = "#fff"; include __DIR__ . "/../knob.blade.php"; ?>
-        </div>
-        <div style="display: flex; margin-top: 1em;">
-            <?php $title = "Ratio"; $value = $pedal['settings']['ratio']; $indicator_colour = "#fff"; include __DIR__ . "/../knob.blade.php"; ?>
-        </div>
-        <div style="display: flex; margin-top: 1em;">
-            <?php $title = "Output"; $value = $pedal['settings']['output']; $indicator_colour = "#fff"; include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Input"; $value = $pedal['settings']['input']; $indicator_colour = "#fff"; include __DIR__ . "/../knob.blade.php"; ?>
+    <div style="margin-right: 2em; border-top: 200px solid #cecece; border-left: 12px solid transparent; border-right: 12px solid transparent; border-radius: 12px; height: 0; position: relative; width: 60px;">
+        <div style="position: absolute; border-top: 180px solid #000; border-left: 12px solid transparent; bottom: 10px; left: -8px; border-right: 12px solid transparent; border-radius: 4px; height: 0; width: 52px;">
         </div>
     </div>
 </div>

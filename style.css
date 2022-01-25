@@ -21,16 +21,19 @@ body {
   border: 1px solid #000;
 }
 .knob {
-  margin-top: 0.5em;
+  margin-top: 0.4em;
   background-color: #171717;
-  height: 48px;
-  width: 48px;
+  height: 36px;
+  width: 36px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 48px;
+  border-radius: 36px;
   border: 1px solid #000;
   position: relative;
+}
+.les_paul label {
+  color: #002212;
 }
 .fender_strat label {
   color: #6a6447;
@@ -42,7 +45,7 @@ body {
   width: 3px;
   background-color: #f3c200;
   top: 0;
-  height: 16px;
+  height: 14px;
   position: absolute;
 }
 .effect {
@@ -59,7 +62,7 @@ body {
   display: inline-block;
 }
 label {
-  font-size: 0.9em;
+  font-size: 0.8em;
   text-transform: uppercase;
 }
 h2,
