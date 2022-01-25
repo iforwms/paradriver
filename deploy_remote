@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "Running git pull..."
+ssh clients 'git -C /home/ifor/code/pedal_board pull'
+
+# echo "Building CSS..."
+# npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify
+
+# echo "Copying dist files to server..."
+# scp -r dist clients:/home/ifor/code/year_planner
+
+echo "Deploy complete!"
