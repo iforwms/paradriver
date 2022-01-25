@@ -4,9 +4,85 @@
     "instrument": "bass",
     "chain": [
       {
-        "id": "fender_jazz",
-        "name": "Fender Jazz Bass",
+        "id": "les_paul",
+        "name": "Les Paul",
         "type": "guitar",
+        "settings": {
+          "neck_pickup": 270,
+          "bridge_pickup": 270,
+          "tone": 15
+        }
+      },
+      {
+        "id": "fender_strat",
+        "name": "Fender Strat",
+        "type": "guitar",
+        "settings": {
+          "neck_pickup": 270,
+          "bridge_pickup": 270,
+          "tone": 15
+        }
+      },
+      {
+        "id": "fender_jazz",
+        "name": "Fender Jazz",
+        "type": "guitar",
+        "settings": {
+          "humbucker": 1,
+          "neck_pickup": 270,
+          "bridge_pickup": 270,
+          "tone": 15
+        }
+      },
+      {
+        "id": "mooer_delay",
+        "name": "Delay",
+        "type": "delay",
+        "settings": {
+          "neck_pickup": 270,
+          "bridge_pickup": 270,
+          "tone": 15
+        }
+      },
+      {
+        "id": "mooer_reverb",
+        "name": "Reverb",
+        "type": "reverb",
+        "settings": {
+          "neck_pickup": 270,
+          "bridge_pickup": 270,
+          "tone": 15
+        }
+      },
+      {
+        "id": "wah",
+        "name": "Wah",
+        "type": "wah"
+      },
+      {
+        "id": "acoustic",
+        "name": "Acoustic",
+        "type": "guitar",
+        "settings": {
+          "neck_pickup": 270,
+          "bridge_pickup": 270,
+          "tone": 15
+        }
+      },
+      {
+        "id": "marshall_clean",
+        "name": "Marshall Clean",
+        "type": "amp_simulator",
+        "settings": {
+          "neck_pickup": 270,
+          "bridge_pickup": 270,
+          "tone": 15
+        }
+      },
+      {
+        "id": "marshall_dirty",
+        "name": "Marshall Dirty",
+        "type": "amp_simulator",
         "settings": {
           "neck_pickup": 270,
           "bridge_pickup": 270,

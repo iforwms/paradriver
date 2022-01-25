@@ -9,7 +9,7 @@
         </div>
 
         <div style="flex-direction: column; display: flex; margin-top: 1.5em;">
-            <label>Pickup Selector (B/M/N)</label>
+            <label>Pickup Selector</label>
             <div style="display: flex; align-items: center; justify-content: center; padding-bottom: .5em; padding-top: .5em; margin-top: .25em;">
                 <div style="position: relative;">
                 <div style="height: 2px; width: 100px; background-color: #6a6447;"></div>
@@ -20,5 +20,6 @@
         </div>
     </div>
 </div>
+
 
 

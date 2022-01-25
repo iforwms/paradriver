@@ -7,17 +7,7 @@
             <?php $title = "Bridge"; $value = $pedal['settings']['bridge_pickup']; include __DIR__ . "/../knob.blade.php"; ?>
             <?php $title = "Tone"; $value = $pedal['settings']['tone']; include __DIR__ . "/../knob.blade.php"; ?>
         </div>
-
-        <div style="width: 100%; margin-top: 1em; margin-left: .5em; display: flex;">
-            <div class="" style="align-items: center; display: flex; flex-direction: row;">
-                <label style="font-size: .7em;">Humbucker</label>
-                <div class="button" style="background-color: #301803;">
-                    <?php if($pedal['settings']['humbucker'] === 1): ?>
-                    <div style="height: 6px; width: 6px; border-radius: 100%; background-color: #a45610;"></div>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
+
 
