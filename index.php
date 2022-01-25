@@ -1,8 +1,26 @@
 <?php
+
+function dd(...$args) {
+    var_dump($args);
+    die();
+}
+
+$db_path = __DIR__ . "/db";
+$db = array_values(array_diff(scandir($db_path), ['.', '..', '.gitkeep']));
+
 $data = [];
-$db = json_decode(file_get_contents(__DIR__ . "/presets.json"), true);
-foreach ($db as $entry) {
-    $data[$entry["instrument"]][] = $entry;
+foreach($db as $song) {
+    $data[] = json_decode(file_get_contents("{$db_path}/{$song}"), true);
+}
+
+$query_song = null;
+if(isset($_GET['song'])) {
+    $songs = array_values(array_filter($data, function($item) {
+        return $item['name'] === $_GET['song'];
+    }));
+    if(count($songs)) {
+        $query_song = $songs[0];
+    }
 }
 ?>
 
@@ -13,27 +31,32 @@ foreach ($db as $entry) {
 <title>Pedal Board Presets</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
-<?php foreach ($data as $instrument => $presets): ?>
-<h2><?= $instrument ?></h2>
+<body style="margin: 0; padding: 0;">
+    <div style="padding: 0 1em;">
+        <ul style="list-style-type: none; padding: 0; display: flex; flex-wrap: wrap;">
+        <?php foreach($data as $song): ?>
+            <li style="font-size: .9em; padding: .5em; background-color: #eee; border-radius: 3px; margin: .25em; white-space: nowrap;"><a style="color: #555; text-decoration: none;" href="<?= "/?song={$song['name']}" ?>"><?= $song['name'] ?></a></li>
+        <?php endforeach ?>
+        </ul>
+    </div>
 
-<?php foreach ($presets as $preset): ?>
-<div style="margin: 1em; border: 1px solid #d5d5d5; border-radius: 4px; padding: 1em;">
-    <h3><?= $preset["name"] ?></h3>
-    <div style="display: flex; flex-wrap: wrap;">
-    <?php foreach ($preset["chain"] as $pedal): ?>
-        <?php if (
-            file_exists(__DIR__ . "/templates/pedals/{$pedal["id"]}.blade.php")
-        ): ?>
-            <?php include __DIR__ .
-                "/templates/pedals/{$pedal["id"]}.blade.php"; ?>
-        <?php else: ?>
-            <?php include __DIR__ . "/templates/pedals/missing.blade.php"; ?>
-        <?php endif; ?>
-    <?php endforeach; ?>
-    </div>
-    </div>
-    <?php endforeach; ?>
-<?php endforeach; ?>
+    <?php if(!is_null($query_song)): ?>
+        <div style="margin: 1em; border: 1px solid #aaa; border-radius: 4px;">
+            <h3 style="border-top-left-radius 3px; border-top-right-radius: 3px; padding: 1em; background-color: #255ee3; margin-bottom: 0; color: #fff;"><?= $query_song["name"] ?></h3>
+            <div style="padding: 1em; display: flex; flex-wrap: wrap;">
+            <?php foreach ($query_song["chain"] as $pedal): ?>
+                <?php if (
+                    file_exists(__DIR__ . "/templates/pedals/{$pedal["id"]}.blade.php")
+                ): ?>
+                    <div style="margin-bottom: 1em;">
+                        <?php include __DIR__ .  "/templates/pedals/{$pedal["id"]}.blade.php"; ?>
+                    </div>
+                <?php else: ?>
+                    <?php include __DIR__ . "/templates/pedals/missing.blade.php"; ?>
+                <?php endif ?>
+            <?php endforeach ?>
+            </div>
+        </div>
+<?php endif ?>
 </body>
 </html>
