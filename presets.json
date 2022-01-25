@@ -76,9 +76,23 @@
         "name": "Marshall Clean",
         "type": "amp_simulator",
         "settings": {
-          "neck_pickup": 270,
-          "bridge_pickup": 270,
-          "tone": 15
+          "treble": 270,
+          "mid": 270,
+          "bass": 15,
+          "volume": 15,
+          "gain": 15
+        }
+      },
+      {
+        "id": "marshall_cab",
+        "name": "Marshall Cab",
+        "type": "amp_simulator",
+        "settings": {
+          "treble": 270,
+          "mid": 270,
+          "bass": 15,
+          "volume": 15,
+          "gain": 15
         }
       },
       {
@@ -86,9 +100,11 @@
         "name": "Marshall Dirty",
         "type": "amp_simulator",
         "settings": {
-          "neck_pickup": 270,
-          "bridge_pickup": 270,
-          "tone": 15
+          "treble": 270,
+          "mid": 270,
+          "bass": 15,
+          "volume": 15,
+          "gain": 15
         }
       },
       {

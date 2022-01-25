@@ -1,6 +1,6 @@
 <?php
     $knob_colour = "#171717";
-    $indicator_colour = "#c41a1a";
+    $indicator_colour = "#fffc3c";
 ?>
 
 <div>
@@ -18,3 +18,4 @@
         </div>
     </div>
 </div>
+
