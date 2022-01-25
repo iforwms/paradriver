@@ -2,8 +2,8 @@
   "name": "Available Instruments",
   "chain": [
     {
-      "id": "les_paul",
-      "name": "Les Paul",
+      "id": "fender_strat",
+      "name": "Fender Strat",
       "type": "guitar",
       "settings": {
         "neck_pickup": 270,
@@ -12,8 +12,8 @@
       }
     },
     {
-      "id": "fender_strat",
-      "name": "Fender Strat",
+      "id": "les_paul",
+      "name": "Les Paul",
       "type": "guitar",
       "settings": {
         "neck_pickup": 270,
@@ -76,28 +76,6 @@
       }
     },
     {
-      "id": "mooer_delay",
-      "name": "Delay",
-      "type": "delay",
-      "settings": {
-        "time": 270,
-        "feedback": 270,
-        "level": 15,
-        "tempo": "1/8th note triplets"
-      }
-    },
-    {
-      "id": "mooer_reverb",
-      "name": "Reverb",
-      "type": "reverb",
-      "settings": {
-        "tone": 150,
-        "decay": 150,
-        "mix": 150,
-        "tempo": 150
-      }
-    },
-    {
       "id": "marshall_clean",
       "name": "Marshall Clean",
       "type": "amp_simulator",
@@ -131,6 +109,28 @@
         "bass": 15,
         "volume": 15,
         "gain": 15
+      }
+    },
+    {
+      "id": "mooer_delay",
+      "name": "Delay",
+      "type": "delay",
+      "settings": {
+        "time": 270,
+        "feedback": 270,
+        "level": 15,
+        "tempo": "1/8th note triplets"
+      }
+    },
+    {
+      "id": "mooer_reverb",
+      "name": "Reverb",
+      "type": "reverb",
+      "settings": {
+        "tone": 150,
+        "decay": 150,
+        "mix": 150,
+        "tempo": 150
       }
     }
   ]
