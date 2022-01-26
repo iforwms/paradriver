@@ -4,11 +4,11 @@
 
     <div class="pedal" style="background: <?= $background ?>; border-color: <?= $knob_colour ?>">
         <div class="knob_container">
-            <?php $title = "Tone"; $value = setting($pedal, 'tone'); include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Decay"; $value = setting($pedal, 'decay'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Tone"; $key = 'tone'; include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Decay"; $key = 'decay'; include __DIR__ . "/../knob.blade.php"; ?>
         </div>
         <div class="knob_container">
-            <?php $title = "Mix"; $value = setting($pedal, 'mix'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Mix"; $key = 'mix'; include __DIR__ . "/../knob.blade.php"; ?>
         </div>
         <div class="knob_container">
             <div class="effect">

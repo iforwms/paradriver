@@ -4,15 +4,15 @@
 
     <div class="pedal" style="background: <?= $background ?>; border-color: <?= $knob_colour ?>">
         <div class="knob_container">
-            <?php $title = "Release"; $value = setting($pedal, 'release'); include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Attack"; $value = setting($pedal, 'attack'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Release"; $key = 'release'; include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Attack"; $key = 'attack'; include __DIR__ . "/../knob.blade.php"; ?>
         </div>
         <div class="knob_container">
-            <?php $title = "Ratio"; $value = setting($pedal, 'ratio'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Ratio"; $key = 'ratio'; include __DIR__ . "/../knob.blade.php"; ?>
         </div>
         <div class="knob_container">
-            <?php $title = "Output"; $value = setting($pedal, 'output'); include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Input"; $value = setting($pedal, 'input'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Output"; $key = 'output'; include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Input"; $key = 'input'; include __DIR__ . "/../knob.blade.php"; ?>
         </div>
     </div>
 </div>

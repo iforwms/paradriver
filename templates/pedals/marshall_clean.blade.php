@@ -4,13 +4,13 @@
 
     <div class="pedal" style="background: <?= $background ?>; border-color: <?= $knob_colour ?>">
         <div class="knob_container">
-            <?php $title = "Treble"; $value = setting($pedal, 'treble'); include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Mid"; $value = setting($pedal, 'mid'); include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Bass"; $value = setting($pedal, 'bass'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Treble"; $key = 'treble'; include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Mid"; $key = 'mid'; include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Bass"; $key = 'bass'; include __DIR__ . "/../knob.blade.php"; ?>
         </div>
         <div class="knob_container w-full">
-            <?php $title = "Volume"; $value = setting($pedal, 'volume'); include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Gain"; $value = setting($pedal, 'gain'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Volume"; $key = 'volume'; include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Gain"; $key = 'gain'; include __DIR__ . "/../knob.blade.php"; ?>
         </div>
     </div>
 </div>

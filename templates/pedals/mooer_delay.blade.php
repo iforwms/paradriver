@@ -4,11 +4,11 @@
 
     <div class="pedal" style="background: <?= $background ?>; border-color: <?= $knob_colour ?>">
         <div class="knob_container">
-            <?php $title = "Time"; $value = setting($pedal, 'time'); include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Feedback"; $value = setting($pedal, 'feedback'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Time"; $key = 'time'; include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Feedback"; $key = 'feedback'; include __DIR__ . "/../knob.blade.php"; ?>
         </div>
         <div class="knob_container">
-            <?php $title = "Level"; $value = setting($pedal, 'level'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Level"; $key = 'level'; include __DIR__ . "/../knob.blade.php"; ?>
         </div>
         <div class="knob_container">
             <div class="effect">

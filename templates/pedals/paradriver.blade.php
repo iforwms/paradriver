@@ -4,15 +4,15 @@
 
     <div class="pedal" style="background: <?= $background ?>; border-color: <?= $knob_colour ?>">
         <div class="knob_container">
-            <?php $title = "Level"; $value = setting($pedal, 'level'); include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Treble"; $value = setting($pedal, 'Treble'); include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Mid"; $value = setting($pedal, 'mid'); include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Bass"; $value = setting($pedal, 'bass'); include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Drive"; $value = setting($pedal, 'drive'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Level"; $key = 'level'; include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Treble"; $key = 'treble'; include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Mid"; $key = 'mid'; include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Bass"; $key = 'bass'; include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Drive"; $key = 'drive'; include __DIR__ . "/../knob.blade.php"; ?>
         </div>
         <div class="knob_container">
-            <?php $title = "Blend"; $value = setting($pedal, 'blend'); include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Mid Shift"; $value = setting($pedal, 'mid_shift'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Blend"; $key = 'blend'; include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Mid Shift"; $key = 'mid_shift'; include __DIR__ . "/../knob.blade.php"; ?>
         </div>
 
         <div class="option_container">

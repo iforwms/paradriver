@@ -4,9 +4,9 @@
 
     <div class="pedal" style="background: <?= $background ?>; border-color: <?= $knob_colour ?>">
         <div class="knob_container">
-            <?php $title = "Volume"; $value = setting($pedal, 'neck_pickup'); include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Tone"; $value = setting($pedal, 'bridge_pickup'); include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Tone"; $value = setting($pedal, 'tone'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Volume"; $key = 'neck_pickup'; include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Tone"; $key = 'bridge_pickup'; include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Tone"; $key = 'tone'; include __DIR__ . "/../knob.blade.php"; ?>
         </div>
 
         <div class="pickup_container">
