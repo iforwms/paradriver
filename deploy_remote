@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Running git pull..."
-ssh clients 'git -C /home/ifor/code/pedal_board pull'
+ssh clients 'sudo -u www-data "git -C /home/ifor/code/pedal_board pull"'
 
 # echo "Building CSS..."
 # npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify
