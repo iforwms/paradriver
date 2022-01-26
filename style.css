@@ -32,14 +32,48 @@ body {
   border: 1px solid #000;
   position: relative;
 }
-.les_paul label {
+.knob_container {
+  display: flex;
+}
+.les_paul .knob_label {
   color: #002212;
 }
-.fender_strat label {
+.fender_strat .knob_label {
   color: #6a6447;
 }
-.fender_jazz label {
-  color: #301803;
+.pedal {
+  border: 2px solid transparent;
+  margin-right: 2em;
+  flex-direction: column;
+  text-align: center;
+  line-height: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  padding: 0.6em;
+}
+.option_label {
+  font-size: 0.7em;
+}
+.option {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+.option + .option {
+  margin-left: 1em;
+}
+.option_container {
+  width: 100%;
+  margin-top: 1em;
+  margin-left: 0.5em;
+  display: flex;
+}
+.option_indicator {
+  height: 6px;
+  width: 6px;
+  border-radius: 100%;
 }
 .indicator {
   width: 3px;
@@ -61,7 +95,7 @@ body {
   border-radius: 8px;
   display: inline-block;
 }
-label {
+.knob_label {
   font-size: 0.8em;
   text-transform: uppercase;
 }

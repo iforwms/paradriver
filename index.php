@@ -5,6 +5,10 @@ function dd(...$args) {
     die();
 }
 
+function setting(array $pedal, string $name, $default = 0) {
+    return isset($pedal['settings'][$name]) ? $pedal['settings'][$name] : $default;
+}
+
 $db_path = __DIR__ . "/db";
 $db = array_values(array_diff(scandir($db_path), ['.', '..', '.gitkeep']));
 

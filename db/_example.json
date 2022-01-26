@@ -27,6 +27,7 @@
       "type": "guitar",
       "settings": {
         "humbucker": 1,
+        "sponge": 0,
         "neck_pickup": 270,
         "bridge_pickup": 270,
         "tone": 15
