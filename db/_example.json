@@ -2,6 +2,18 @@
   "name": "Available Instruments",
   "chain": [
     {
+      "id": "hartke_500",
+      "name": "Bass Amp",
+      "type": "amp",
+      "settings": {
+        "shape": 270,
+        "shape_on": 0,
+        "bass": 45,
+        "mid": 15,
+        "treble": 60
+      }
+    },
+    {
       "id": "fender_strat",
       "name": "Fender Strat",
       "type": "guitar",
