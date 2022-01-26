@@ -150,6 +150,10 @@ for(var i = 0; i < knobs.length; i++) {
     knobs[i].addEventListener('click', function(e) {
         mini_form_inputs.innerHTML = '<input type="hidden" name="pedal_id" value="' + this.dataset.pedalId + '"/>';
         mini_form_inputs.innerHTML += '<input type="hidden" name="knob_key" value="' + this.dataset.knobKey + '"/>';
+        value_input.type = 'number';
+        value_input.setAttribute('min', 0);
+        value_input.setAttribute('max', 350);
+        value_input.setAttribute('step', 10);
         value_input.value = this.dataset.knobValue;
         mini_form.classList.remove('hidden');
     });
