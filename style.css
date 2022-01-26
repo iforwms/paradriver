@@ -9,6 +9,10 @@ body {
   font-family: sans-serif;
   font-weight: 600;
 }
+
+.w-full {
+  width: 100%;
+}
 .button {
   margin-left: 0.5em;
   background-color: #171717;
@@ -47,6 +51,9 @@ body {
 }
 .knob_container {
   display: flex;
+}
+.knob_container + .knob_container {
+  margin-top: 1em;
 }
 .knob_label {
   font-size: 0.8em;
@@ -138,6 +145,7 @@ body {
 }
 .option_label {
   font-size: 0.7em;
+  text-transform: uppercase;
 }
 .pickup_selector {
   display: flex;
@@ -155,7 +163,6 @@ body {
 }*/
 .pedal {
   border: 2px solid transparent;
-  margin-right: 2em;
   flex-direction: column;
   text-align: center;
   line-height: 1.5;
@@ -202,24 +209,34 @@ body {
   margin-bottom: 0.25em;
 }
 .wah_outer {
-  border-top: 200px solid #cecece;
-  border-left: 12px solid transparent;
-  border-right: 12px solid transparent;
+  border-top: 180px solid #cecece;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
   border-radius: 12px;
   height: 0;
   position: relative;
-  width: 60px;
+  width: 80px;
+}
+.wah_outer span {
+  font-size: 2em;
+  color: #fff;
+  text-orientation: upright;
+  position: absolute;
+  bottom: 32px;
+  left: 10px;
+  z-index: 3;
+  writing-mode: tb;
 }
 .wah_inner {
   position: absolute;
-  border-top: 180px solid #000;
-  border-left: 12px solid transparent;
-  bottom: 10px;
-  left: -8px;
-  border-right: 12px solid transparent;
+  border-top: 160px solid #000;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
   border-radius: 4px;
+  bottom: 10px;
+  left: -4px;
   height: 0;
-  width: 52px;
+  width: 72px;
 }
 h1 {
   text-align: center;

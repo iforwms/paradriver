@@ -5,6 +5,7 @@
 
     <div class="wah_outer">
         <div class="wah_inner">
+            <span>VOX</span>
         </div>
     </div>
 </div>

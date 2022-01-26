@@ -1,4 +1,4 @@
-<?php $indicator_colour = "#4a433c"; $knob_colour = "#fff"; $background = "radial-gradient(#09b36b, #00240c)"; ?>
+<?php $indicator_colour = "#4a433c"; $knob_colour = "#fff"; $background = "radial-gradient(#09b36b, #00240c)"; $label_colour = $knob_colour; ?>
 <div class="pedal_container">
     <h4 class="pedal_name"><?= $pedal['name']; ?></h4>
 
@@ -11,7 +11,7 @@
 
         <div class="pickup_container">
             <div class="">
-                <label style="color: <?= $knob_colour ?>" class="option_label">Pickup Selector (B/M/N)</label>
+                <label style="color: <?= $label_colour ?>" class="option_label">Pickup Selector (B/M/N)</label>
                 <div class="pickup_selector">
                     <div>
                         <div class="pickup_range" style="background-color: <?= $knob_colour ?>"></div>

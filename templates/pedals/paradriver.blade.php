@@ -1,36 +1,34 @@
-<?php $knob_colour = "#171717"; ?>
+<?php $indicator_colour = "#f3c200"; $label_colour = $indicator_colour; $knob_colour = "#171717"; $background = "#282a2e"; ?>
+<div class="pedal_container">
+    <h4 class="pedal_name"><?= $pedal['name']; ?></h4>
 
-<div class="paradriver">
-    <h4><?= $pedal['name']; ?></h4>
-
-    <div class="box" style="margin-right: 2em;">
-        <div style="display: flex;">
-            <?php $indicator_colour = "#f3c200"; $title = "Level"; $value = $pedal['settings']['level']; include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Treble"; $value = $pedal['settings']['treble']; include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Mid"; $value = $pedal['settings']['mid']; include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Bass"; $value = $pedal['settings']['bass']; include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Drive"; $value = $pedal['settings']['drive']; include __DIR__ . "/../knob.blade.php"; ?>
+    <div class="pedal" style="background: <?= $background ?>; border-color: <?= $knob_colour ?>">
+        <div class="knob_container">
+            <?php $title = "Level"; $value = setting($pedal, 'level'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Treble"; $value = setting($pedal, 'Treble'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Mid"; $value = setting($pedal, 'mid'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Bass"; $value = setting($pedal, 'bass'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Drive"; $value = setting($pedal, 'drive'); include __DIR__ . "/../knob.blade.php"; ?>
+        </div>
+        <div class="knob_container">
+            <?php $title = "Blend"; $value = setting($pedal, 'blend'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Mid Shift"; $value = setting($pedal, 'mid_shift'); include __DIR__ . "/../knob.blade.php"; ?>
         </div>
 
-        <div style="justify-content: center; margin-top: 1.5em; display: flex;">
-            <?php $title = "Blend"; $value = $pedal['settings']['blend']; include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Mid Shift"; $value = $pedal['settings']['mid_shift']; include __DIR__ . "/../knob.blade.php"; ?>
-        </div>
-
-        <div style="margin-top: 1em; margin-left: .5em; display: flex;">
-            <div class="" style="align-items: center; display: flex; flex-direction: row;">
-                <label style="font-size: .7em;">Rumble Filter</label>
-                <div class="button">
-                    <?php if($pedal['settings']['rumble'] === 1): ?>
-                    <div style="height: 6px; width: 6px; border-radius: 100%; background-color: #f3c200;"></div>
+        <div class="option_container">
+            <div class="option">
+                <label style="color: <?= $label_colour ?>" class="option_label">Rumble Filter</label>
+                <div class="button" style="background-color: <?= $knob_colour ?>;">
+                    <?php if(setting($pedal, 'rumble')): ?>
+                        <div class="option_indicator" style="background-color: <?= $indicator_colour ?>;"></div>
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="" style="margin-left: 1em; align-items: center; display: flex; flex-direction: row;">
-                <label style="font-size: .7em;">Air</label>
-                <div class="button">
-                    <?php if($pedal['settings']['air'] === 1): ?>
-                    <div style="height: 6px; width: 6px; border-radius: 100%; background-color: #f3c200;"></div>
+            <div class="option">
+                <label style="color: <?= $label_colour ?>" class="option_label">Air</label>
+                <div class="button" style="background-color: <?= $knob_colour ?>;">
+                    <?php if(setting($pedal, 'air')): ?>
+                        <div class="option_indicator" style="background-color: <?= $indicator_colour ?>;"></div>
                     <?php endif; ?>
                 </div>
             </div>

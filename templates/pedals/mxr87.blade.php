@@ -1,19 +1,18 @@
-<?php $knob_colour = "#000"; ?>
+<?php $indicator_colour = "#fff"; $knob_colour = "#000"; $background = "#fff"; $label_colour = $knob_colour;  ?>
+<div class="pedal_container">
+    <h4 class="pedal_name"><?= $pedal['name']; ?></h4>
 
-<div>
-    <h4><?= $pedal['name']; ?></h4>
-
-    <div style="margin-right: 2em; flex-direction: column; text-align: center; line-height: 1.5; background-color: #fff; border: 2px solid #333; color: #333; display: flex; justify-content: center; align-items: center; border-radius: 12px; padding: 0.6em;">
-        <div style="display: flex;">
-            <?php $title = "Release"; $value = $pedal['settings']['release']; $indicator_colour = "#fff"; include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Attack"; $value = $pedal['settings']['attack']; $indicator_colour = "#fff"; include __DIR__ . "/../knob.blade.php"; ?>
+    <div class="pedal" style="background: <?= $background ?>; border-color: <?= $knob_colour ?>">
+        <div class="knob_container">
+            <?php $title = "Release"; $value = setting($pedal, 'release'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Attack"; $value = setting($pedal, 'attack'); include __DIR__ . "/../knob.blade.php"; ?>
         </div>
-        <div style="display: flex; margin-top: 1em;">
-            <?php $title = "Ratio"; $value = $pedal['settings']['ratio']; $indicator_colour = "#fff"; include __DIR__ . "/../knob.blade.php"; ?>
+        <div class="knob_container">
+            <?php $title = "Ratio"; $value = setting($pedal, 'ratio'); include __DIR__ . "/../knob.blade.php"; ?>
         </div>
-        <div style="display: flex; margin-top: 1em;">
-            <?php $title = "Output"; $value = $pedal['settings']['output']; $indicator_colour = "#fff"; include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Input"; $value = $pedal['settings']['input']; $indicator_colour = "#fff"; include __DIR__ . "/../knob.blade.php"; ?>
+        <div class="knob_container">
+            <?php $title = "Output"; $value = setting($pedal, 'output'); include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Input"; $value = setting($pedal, 'input'); include __DIR__ . "/../knob.blade.php"; ?>
         </div>
     </div>
 </div>
