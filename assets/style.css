@@ -223,7 +223,7 @@ body {
   text-orientation: upright;
   position: absolute;
   bottom: 32px;
-  left: 10px;
+  left: 9px;
   z-index: 3;
   writing-mode: tb;
 }
