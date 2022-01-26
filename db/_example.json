@@ -8,7 +8,8 @@
       "settings": {
         "neck_pickup": 270,
         "bridge_pickup": 270,
-        "tone": 15
+        "tone": 15,
+        "pickup_selector": 60
       }
     },
     {
@@ -136,4 +137,3 @@
     }
   ]
 }
-

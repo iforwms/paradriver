@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body {
   background-color: #f9f9f9;
   color: #282a2e;
@@ -5,9 +8,6 @@ body {
   margin: 0;
   font-family: sans-serif;
   font-weight: 600;
-}
-.paradriver {
-  color: #f3c200;
 }
 .button {
   margin-left: 0.5em;
@@ -19,6 +19,19 @@ body {
   align-items: center;
   border-radius: 48px;
   border: 1px solid #000;
+}
+.effect {
+  margin: 0 0.5em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.indicator {
+  width: 3px;
+  background-color: #f3c200;
+  top: 0;
+  height: 14px;
+  position: absolute;
 }
 .knob {
   margin-top: 0.4em;
@@ -35,12 +48,111 @@ body {
 .knob_container {
   display: flex;
 }
-.les_paul .knob_label {
-  color: #002212;
+.knob_label {
+  font-size: 0.8em;
+  text-transform: uppercase;
 }
-.fender_strat .knob_label {
-  color: #6a6447;
+.menu {
+  overflow-y: scroll;
+  top: 0;
+  position: fixed;
+  bottom: 0;
+  width: 240px;
+  background-color: #fff;
+  border-right: 2px solid #333;
+  padding: 0.5em;
+  z-index: 5;
+  transition: margin 0.3s;
+  margin-left: -240px;
 }
+.show_menu .menu {
+  margin-left: 0;
+}
+.menu_btn {
+  cursor: pointer;
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: none;
+  border: none;
+  padding: 0.5em;
+  opacity: 0.7;
+  margin: 8px;
+  background-color: #fff;
+  border-radius: 3px;
+}
+.menu ul {
+  margin-top: 2.5em;
+  margin-bottom: 0;
+  list-style-type: none;
+  padding: 0;
+}
+.menu ul li {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.9em;
+  padding: 0.5em;
+  background-color: #eee;
+  border-radius: 3px;
+  margin: 0.25em 0;
+  white-space: nowrap;
+}
+.menu li a {
+  color: #555;
+  text-decoration: none;
+}
+.option + .option {
+  margin-left: 1em;
+}
+.option {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+.option_container {
+  width: 100%;
+  margin-top: 1em;
+  margin-left: 0.5em;
+  display: flex;
+}
+.pickup_container {
+  margin: 1em auto 0;
+}
+.pickup_selector_btn {
+  height: 18px;
+  width: 18px;
+  position: absolute;
+  top: -9px;
+  border-radius: 18px;
+  border: 1px solid #000;
+}
+.pickup_range {
+  height: 2px;
+  width: 100px;
+  background-color: #6a6447;
+}
+.option_indicator {
+  height: 6px;
+  width: 6px;
+  border-radius: 100%;
+}
+.option_label {
+  font-size: 0.7em;
+}
+.pickup_selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0.5em;
+  padding-top: 0.5em;
+  margin-top: 0.25em;
+}
+.pickup_selector > div {
+  position: relative;
+}
+/*.paradriver {
+  color: #f3c200;
+}*/
 .pedal {
   border: 2px solid transparent;
   margin-right: 2em;
@@ -53,71 +165,65 @@ body {
   border-radius: 12px;
   padding: 0.6em;
 }
-.option_label {
-  font-size: 0.7em;
+.pedal_container {
+  margin-right: 1em;
 }
-.option {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-}
-.option + .option {
-  margin-left: 1em;
-}
-.option_container {
-  width: 100%;
-  margin-top: 1em;
-  margin-left: 0.5em;
-  display: flex;
-}
-.option_indicator {
-  height: 6px;
-  width: 6px;
-  border-radius: 100%;
-}
-.indicator {
-  width: 3px;
-  background-color: #f3c200;
-  top: 0;
-  height: 14px;
-  position: absolute;
-}
-.effect {
-  margin: 0 0.5em;
-  display: flex;
-  align-items: center;
+.pedal_missing {
   flex-direction: column;
+  text-align: center;
+  line-height: 1.5;
+  background-color: #fff;
+  border: 2px solid #333;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  padding: 0.6em;
 }
-.box {
-  /* box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06); */
-  background-color: #282a2e;
-  padding: 1.5em 1em;
-  border-radius: 8px;
-  display: inline-block;
-}
-.knob_label {
-  font-size: 0.8em;
-  text-transform: uppercase;
-}
-h2,
-h3 {
-  margin-top: 0;
-  text-transform: uppercase;
-  font-size: 1.1em;
-  margin-bottom: 0.25em;
-  color: #282a2e;
-}
-h2 {
-  background-color: #4980ee;
-  padding: 1em;
-  font-size: 0.7em;
-  margin-top: 1em;
-  color: #fff;
-  margin-bottom: 0;
-}
-h4 {
+.pedal_name {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   font-size: 0.8em;
   color: #282a2e;
+}
+.setup_container {
+  margin: 1em;
+  border: 2px solid #333;
+  border-radius: 4px;
+}
+.setup_name {
+  padding: 1em;
+  color: #fff;
+  background-color: #333;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 1.1em;
+  margin-bottom: 0.25em;
+}
+.wah_outer {
+  border-top: 200px solid #cecece;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-radius: 12px;
+  height: 0;
+  position: relative;
+  width: 60px;
+}
+.wah_inner {
+  position: absolute;
+  border-top: 180px solid #000;
+  border-left: 12px solid transparent;
+  bottom: 10px;
+  left: -8px;
+  border-right: 12px solid transparent;
+  border-radius: 4px;
+  height: 0;
+  width: 52px;
+}
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: 1.1em;
+  margin: 1em 0;
 }
