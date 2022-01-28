@@ -72,6 +72,7 @@ form {
 .btn {
   outline: none;
   border: 1px solid transparent;
+  cursor: pointer;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   padding: 0.5em 1em;
@@ -247,10 +248,12 @@ form {
   align-items: center;
   border-radius: 12px;
   padding: 0.6em;
+  margin-bottom: 1em;
 }
 .pedal_name {
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  margin: 0;
+  /* margin-top: 0.5em; */
+  /* margin-bottom: 0.5em; */
   font-size: 0.8em;
   color: #282a2e;
 }
@@ -259,7 +262,19 @@ form {
   border: 2px solid #333;
   border-radius: 4px;
 }
+.setup_name h3 {
+  margin: 0;
+}
+select {
+  padding: .5em .5em;
+  border: none;
+  border-radius: 3px;
+  background-color: #fff;
+}
 .setup_name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 1em;
   color: #fff;
   background-color: #333;
