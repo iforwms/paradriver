@@ -245,8 +245,11 @@ btn.addEventListener('click', function() {
 var option_btns = document.querySelectorAll('.option');
 for(var i = 0; i < option_btns.length; i++) {
     option_btns[i].addEventListener('click', function(e) {
-        var checked = this.dataset.checked === '1' ? true : false;
-        console.log(checked, this.dataset);
+        var value = this.dataset.knobValue === '1' ? "0" : "1";
+        knob_form_inputs.innerHTML = '<input type="hidden" name="pedal_id" value="' + this.dataset.pedalId + '"/>';
+        knob_form_inputs.innerHTML += '<input type="hidden" name="knob_key" value="' + this.dataset.knobKey + '"/>';
+        knob_form_inputs.innerHTML += '<input type="hidden" name="value" value="' + value + '"/>';
+        knob_form.submit();
     });
 }
 
