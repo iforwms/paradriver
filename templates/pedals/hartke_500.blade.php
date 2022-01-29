@@ -9,14 +9,7 @@
         </div>
 
         <div class="option_container">
-            <div class="option">
-                <label style="color: <?= $label_colour ?>" class="option_label">Shape On</label>
-                <div class="button" style="background-color: <?= $knob_colour ?>;">
-                    <?php if(setting($pedal, 'shape_on')): ?>
-                        <div class="option_indicator" style="background-color: <?= $indicator_colour ?>;"></div>
-                    <?php endif; ?>
-                </div>
-            </div>
+            <?php $title = "Shape On"; $key = 'shape_on'; include __DIR__ . "/../option.blade.php"; ?>
         </div>
     </div>
 </div>

@@ -8,22 +8,8 @@
         </div>
 
         <div class="option_container">
-            <div class="option">
-                <label style="color: <?= $label_colour ?>" class="option_label">Humbucker</label>
-                <div class="button" style="background-color: <?= $knob_colour ?>;">
-                    <?php if(setting($pedal, 'humbucker')): ?>
-                        <div class="option_indicator" style="background-color: <?= $indicator_colour ?>;"></div>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <div class="option">
-                <label style="color: <?= $label_colour ?>" class="option_label">Sponge</label>
-                <div class="button" style="background-color: <?= $knob_colour ?>;">
-                    <?php if(setting($pedal, 'sponge')): ?>
-                        <div class="option_indicator" style="background-color: <?= $indicator_colour ?>;"></div>
-                    <?php endif; ?>
-                </div>
-            </div>
+            <?php $title = "Humbucker"; $key = 'humbucker'; include __DIR__ . "/../option.blade.php"; ?>
+            <?php $title = "Sponge"; $key = 'sponge'; include __DIR__ . "/../option.blade.php"; ?>
         </div>
     </div>
 </div>

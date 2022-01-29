@@ -70,7 +70,6 @@ foreach($db as $song) {
     }
 }
 ksort($pedals);
-
 $query_song = $data[0];
 if(isset($_GET['song'])) {
     $songs = array_values(array_filter($data, function($item) {
@@ -80,24 +79,36 @@ if(isset($_GET['song'])) {
         $query_song = $songs[0];
     }
 }
+
+foreach($query_song['chain'] as $pedal) {
+    unset($pedals[$pedal['id']]);
+}
 ?>
 
 <!doctype html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
-<link rel="manifest" href="/assets/site.webmanifest">
-<link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#000000">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="theme-color" content="#ffffff">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+    <link rel="manifest" href="/assets/site.webmanifest">
+    <link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#000000">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
 
-<title>Ifor's Pedal Board Presets</title>
-<link rel="stylesheet" href="/assets/style.css">
+    <title>Ifor's Pedal Board Presets</title>
+    <link rel="stylesheet" href="/assets/style.css">
+
+    <link rel="stylesheet" href="/assets/precision-inputs.css">
+    <script src="/assets/precision-inputs.js"></script>
 </head>
 <body>
+
+    <div class="my-knob-container">
+      <div class="my-knob-visuals"></div>
+    </div>
+
     <div class="menu">
         <button class="menu_btn" id="toggle_menu">MENU</button>
         <ul>
@@ -160,6 +171,12 @@ if(isset($_GET['song'])) {
             </form>
         </div>
 
+        <form id="knob_form" class="hidden" action="/?song=<?= $query_song['name'] ?>" method="POST">
+            <div id="knob_form_inputs"></div>
+            <input type="hidden" value="update" name="action"/>
+            <input type="hidden" value="<?= $query_song['filename'] ?? "" ?>" name="filename"/>
+</form>
+
         <form action="/" method="POST" class="hidden">
             <div class="form-input">
                 <label>Name</label>
@@ -191,12 +208,32 @@ if(isset($_GET['song'])) {
             <button class='submit_btn'>Update</button>
         </form>
 <?php endif ?>
+
 <script>
 (function() {
+
+var knob_form = document.getElementById('knob_form');
+var knob_form_inputs = document.getElementById('knob_form_inputs');
+var knobs = document.querySelectorAll('.knob');
+for(var i = 0; i < knobs.length; i++) {
+    var knob = new PrecisionInputs.FLStandardKnob(knobs[i], {
+        color: knobs[i].dataset.color,
+        min: 0,
+        max: 100,
+        step: 1,
+        initial: parseInt(knobs[i].dataset.knobValue)
+    });
+    knob.addEventListener('blur', function(e) {
+        knob_form_inputs.innerHTML = '<input type="hidden" name="pedal_id" value="' + this.parentElement.dataset.pedalId + '"/>';
+        knob_form_inputs.innerHTML += '<input type="hidden" name="knob_key" value="' + this.parentElement.dataset.knobKey + '"/>';
+        knob_form_inputs.innerHTML += '<input type="hidden" name="value" value="' + e.target.value + '"/>';
+        knob_form.submit();
+    });
+}
+
 var add_pedal = document.getElementById('add_pedal');
 var add_pedal_form = document.getElementById('add_pedal_form');
 add_pedal.addEventListener('change', function(e) {
-    console.log('adding pedal', e.target.value);
     add_pedal_form.submit();
 });
 
@@ -205,29 +242,37 @@ btn.addEventListener('click', function() {
     document.body.classList.toggle('show_menu');
 });
 
-var knobs = document.querySelectorAll('.knob');
-var mini_form = document.getElementById('mini_form');
-var mini_form_close = document.getElementById('mini_form_close');
-var value_input = document.getElementById('value_input');
-mini_form_close.addEventListener('click', function() {
-    mini_form.classList.add('hidden');
-});
-var submit_btn = document.getElementById('submit_btn');
-submit_btn.addEventListener('click', function() {
-    mini_form.classList.add('hidden');
-});
-for(var i = 0; i < knobs.length; i++) {
-    knobs[i].addEventListener('click', function(e) {
-        mini_form_inputs.innerHTML = '<input type="hidden" name="pedal_id" value="' + this.dataset.pedalId + '"/>';
-        mini_form_inputs.innerHTML += '<input type="hidden" name="knob_key" value="' + this.dataset.knobKey + '"/>';
-        value_input.type = 'number';
-        value_input.setAttribute('min', 0);
-        value_input.setAttribute('max', 350);
-        value_input.setAttribute('step', 10);
-        value_input.value = this.dataset.knobValue;
-        mini_form.classList.remove('hidden');
+var option_btns = document.querySelectorAll('.option');
+for(var i = 0; i < option_btns.length; i++) {
+    option_btns[i].addEventListener('click', function(e) {
+        var checked = this.dataset.checked === '1' ? true : false;
+        console.log(checked, this.dataset);
     });
 }
+
+/* var knobs = document.querySelectorAll('.knob'); */
+/* var mini_form = document.getElementById('mini_form'); */
+/* var mini_form_close = document.getElementById('mini_form_close'); */
+/* var value_input = document.getElementById('value_input'); */
+/* mini_form_close.addEventListener('click', function() { */
+/*     mini_form.classList.add('hidden'); */
+/* }); */
+/* var submit_btn = document.getElementById('submit_btn'); */
+/* submit_btn.addEventListener('click', function() { */
+/*     mini_form.classList.add('hidden'); */
+/* }); */
+/* for(var i = 0; i < knobs.length; i++) { */
+/*     knobs[i].addEventListener('click', function(e) { */
+/*         mini_form_inputs.innerHTML = '<input type="hidden" name="pedal_id" value="' + this.dataset.pedalId + '"/>'; */
+/*         mini_form_inputs.innerHTML += '<input type="hidden" name="knob_key" value="' + this.dataset.knobKey + '"/>'; */
+/*         value_input.type = 'number'; */
+/*         value_input.setAttribute('min', 0); */
+/*         value_input.setAttribute('max', 350); */
+/*         value_input.setAttribute('step', 10); */
+/*         value_input.value = this.dataset.knobValue; */
+/*         mini_form.classList.remove('hidden'); */
+/*     }); */
+/* } */
 })();
 </script>
 </body>

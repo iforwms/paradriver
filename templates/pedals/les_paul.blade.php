@@ -1,4 +1,4 @@
-<?php $indicator_colour = "#4a433c"; $knob_colour = "#fff"; $background = "radial-gradient(#09b36b, #00240c)"; $label_colour = $knob_colour; ?>
+<?php $indicator_colour = "#fff"; $knob_colour = "#fff"; $background = "radial-gradient(#09b36b, #00240c)"; $label_colour = $knob_colour; ?>
 <div class="pedal_container">
     <div class="pedal" style="background: <?= $background ?>; border-color: <?= $knob_colour ?>">
         <div class="knob_container">

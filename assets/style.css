@@ -17,6 +17,7 @@ body {
   display: none;
 }
 .button {
+  cursor: pointer;
   margin-left: 0.5em;
   background-color: #171717;
   height: 18px;
@@ -173,6 +174,7 @@ form {
   margin-left: 1em;
 }
 .option {
+  cursor: pointer;
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -205,6 +207,7 @@ form {
   border-radius: 100%;
 }
 .option_label {
+  cursor: pointer;
   font-size: 0.7em;
   text-transform: uppercase;
 }

@@ -14,22 +14,8 @@
         </div>
 
         <div class="option_container">
-            <div class="option">
-                <label style="color: <?= $label_colour ?>" class="option_label">Rumble Filter</label>
-                <div class="button" style="background-color: <?= $knob_colour ?>;">
-                    <?php if(setting($pedal, 'rumble')): ?>
-                        <div class="option_indicator" style="background-color: <?= $indicator_colour ?>;"></div>
-                    <?php endif; ?>
-                </div>
-            </div>
-            <div class="option">
-                <label style="color: <?= $label_colour ?>" class="option_label">Air</label>
-                <div class="button" style="background-color: <?= $knob_colour ?>;">
-                    <?php if(setting($pedal, 'air')): ?>
-                        <div class="option_indicator" style="background-color: <?= $indicator_colour ?>;"></div>
-                    <?php endif; ?>
-                </div>
-            </div>
+            <?php $title = "Rumble Filter"; $key = 'rumble'; include __DIR__ . "/../option.blade.php"; ?>
+            <?php $title = "Air"; $key = 'air'; include __DIR__ . "/../option.blade.php"; ?>
         </div>
     </div>
 </div>
