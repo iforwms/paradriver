@@ -1,98 +1,4 @@
-<?php
-
-function dd(...$args) {
-    echo "<pre>";
-    var_dump($args);
-    die();
-}
-
-function sort_chain(array $chain) {
-    $unique = [];
-    foreach($chain as $pedal) {
-        $index = array_search($pedal['id'], PEDAL_ORDER);
-        $in_array = count(array_filter($unique, function($item) use ($pedal) {
-            return $item['id'] === $pedal['id'];
-        }));
-        if($in_array) continue;
-        $unique[$index] = $pedal;
-    }
-    ksort($unique);
-    return array_values($unique);
-}
-function setting(array $pedal, string $name, $default = 0) {
-    return isset($pedal['settings'][$name]) ? $pedal['settings'][$name] : $default;
-}
-
-const PEDAL_ORDER = [
-    'hartke_500', 'fender_strat', 'les_paul', 'fender_jazz', 'acoustic', 'wah', 'mxr87', 'paradriver', 'marshall_clean', 'marshall_dirty', 'marshall_cab', 'mooer_delay', 'mooer_reverb',
-];
-$db_path = __DIR__ . "/db";
-$db = array_values(array_diff(scandir($db_path), ['.', '..', '.gitkeep']));
-
-if(isset($_POST) && isset($_POST['action']) && $_POST['action'] === 'create' && isset($_POST['name']) && $_POST['name'] && !in_array($_POST['name'] . ".json", $db)) {
-    $new_preset = [
-        'name' => $name = ucwords($_POST['name']),
-        'chain' => [],
-    ];
-    file_put_contents("{$db_path}/{$_POST['name']}.json", json_encode($new_preset));
-    header("Location: /?song={$name}");
-}
-elseif(isset($_POST) && isset($_POST['filename'])){
-    if(file_exists("{$db_path}/{$_POST['filename']}")) {
-        $song_data = json_decode(file_get_contents("{$db_path}/{$_POST['filename']}"), true);
-        switch($_POST['action']) {
-            case "update":
-                foreach($song_data['chain'] as $index => $pedal) {
-                    if($pedal['id'] !== $_POST['pedal_id']) continue;
-                    $song_data['chain'][$index]['settings'][$_POST['knob_key']] = $_POST['value'];
-                }
-                break;
-            case "add":
-                $pedal_data = explode("|", $_POST['pedal']);
-                $song_data['chain'][] = [
-                    'id' => $pedal_data[0],
-                    'name' => $pedal_data[1],
-                ];
-                break;
-            case "remove":
-                $song_data['chain'] = array_filter($song_data['chain'], function($item) {
-                    return $item['id'] !== $_POST['pedal_id'];
-                });
-                break;
-            default:
-                dd("Unsupported action.");
-        }
-        $song_data['chain'] = sort_chain($song_data['chain']);
-        file_put_contents("{$db_path}/{$_POST['filename']}", json_encode($song_data));
-    }
-}
-
-$pedals = [];
-$data = [];
-foreach($db as $song) {
-    $song_data = json_decode(file_get_contents("{$db_path}/{$song}"), true);
-    $song_data['filename'] = $song;
-    $data[] = $song_data;
-    foreach($song_data['chain'] as $pedal) {
-        $pedals[$pedal['id']] = $pedal['name'];
-    }
-}
-ksort($pedals);
-$query_song = $data[0];
-if(isset($_GET['song'])) {
-    $songs = array_values(array_filter($data, function($item) {
-        return $item['name'] === $_GET['song'];
-    }));
-    if(count($songs)) {
-        $query_song = $songs[0];
-    }
-}
-
-foreach($query_song['chain'] as $pedal) {
-    unset($pedals[$pedal['id']]);
-}
-unset($pedals['']);
-?>
+<?php require_once __DIR__ . "/parser.php"; ?>
 
 <!doctype html>
 <html>
@@ -113,11 +19,6 @@ unset($pedals['']);
     <script src="/assets/precision-inputs.js"></script>
 </head>
 <body>
-
-    <div class="my-knob-container">
-      <div class="my-knob-visuals"></div>
-    </div>
-
     <div class="menu">
         <button class="menu_btn" id="toggle_menu">MENU</button>
 
@@ -157,24 +58,24 @@ unset($pedals['']);
             </div>
 
             <div style="padding: 1em 1em 0; display: flex; flex-wrap: wrap;">
-            <?php foreach ($query_song["chain"] as $pedal): ?>
-                <?php if (file_exists(__DIR__ . "/templates/pedals/{$pedal["id"]}.blade.php")): ?>
-                    <div style="margin-bottom: 1em;">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-right: 1em;">
-                            <h4 class="pedal_name"><?= $pedal['name']; ?></h4>
-                            <form action="/?song=<?= $query_song['name'] ?>" method="POST">
-                                <input type="hidden" value="remove" name="action"/>
-                                <input type="hidden" value="<?= $pedal['id'] ?>" name="pedal_id"/>
-                                <input type="hidden" value="<?= $query_song['filename'] ?? "" ?>" name="filename"/>
-                                <button class="btn" style="padding: .25em; background-color: transparent; color: red;">&#x2715</button>
-                            </form>
+                <?php foreach ($query_song["chain"] as $pedal): ?>
+                    <?php if (file_exists(__DIR__ . "/templates/pedals/{$pedal["id"]}.blade.php")): ?>
+                        <div style="margin-bottom: 1em;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-right: 1em;">
+                                <h4 class="pedal_name"><?= $pedal['name']; ?></h4>
+                                <form action="/?song=<?= $query_song['name'] ?>" method="POST">
+                                    <input type="hidden" value="remove" name="action"/>
+                                    <input type="hidden" value="<?= $pedal['id'] ?>" name="pedal_id"/>
+                                    <input type="hidden" value="<?= $query_song['filename'] ?? "" ?>" name="filename"/>
+                                    <button class="btn" style="padding: .25em; background-color: transparent; color: red;">&#x2715</button>
+                                </form>
+                            </div>
+                            <?php include __DIR__ .  "/templates/pedals/{$pedal["id"]}.blade.php" ?>
                         </div>
-                        <?php include __DIR__ .  "/templates/pedals/{$pedal["id"]}.blade.php" ?>
-                    </div>
-                <?php else: ?>
-                    <?php include __DIR__ . "/templates/pedals/missing.blade.php" ?>
-                <?php endif ?>
-            <?php endforeach ?>
+                    <?php else: ?>
+                        <?php include __DIR__ . "/templates/pedals/missing.blade.php" ?>
+                    <?php endif ?>
+                <?php endforeach ?>
             </div>
         </div>
 
@@ -193,7 +94,7 @@ unset($pedals['']);
             <div id="knob_form_inputs"></div>
             <input type="hidden" value="update" name="action"/>
             <input type="hidden" value="<?= $query_song['filename'] ?? "" ?>" name="filename"/>
-</form>
+        </form>
 
         <form action="/" method="POST" class="hidden">
             <div class="form-input">
@@ -225,74 +126,8 @@ unset($pedals['']);
             <?php endforeach ?>
             <button class='submit_btn'>Update</button>
         </form>
-<?php endif ?>
+    <?php endif ?>
 
-<script>
-(function() {
-
-var knob_form = document.getElementById('knob_form');
-var knob_form_inputs = document.getElementById('knob_form_inputs');
-var knobs = document.querySelectorAll('.knob');
-for(var i = 0; i < knobs.length; i++) {
-    var knob = new PrecisionInputs.FLStandardKnob(knobs[i], {
-        color: knobs[i].dataset.color,
-        min: 0,
-        max: 100,
-        step: 1,
-        initial: parseInt(knobs[i].dataset.knobValue)
-    });
-    knob.addEventListener('blur', function(e) {
-        knob_form_inputs.innerHTML = '<input type="hidden" name="pedal_id" value="' + this.parentElement.dataset.pedalId + '"/>';
-        knob_form_inputs.innerHTML += '<input type="hidden" name="knob_key" value="' + this.parentElement.dataset.knobKey + '"/>';
-        knob_form_inputs.innerHTML += '<input type="hidden" name="value" value="' + e.target.value + '"/>';
-        knob_form.submit();
-    });
-}
-
-var add_pedal = document.getElementById('add_pedal');
-var add_pedal_form = document.getElementById('add_pedal_form');
-add_pedal.addEventListener('change', function(e) {
-    add_pedal_form.submit();
-});
-
-var btn = document.getElementById('toggle_menu');
-btn.addEventListener('click', function() {
-    document.body.classList.toggle('show_menu');
-});
-
-var pickup_ranges = document.querySelectorAll('.pickup_range');
-for(var i = 0; i < pickup_ranges.length; i++) {
-    pickup_ranges[i].addEventListener('change', function(e) {
-        /* console.log(e.target.value, this.dataset); */
-        knob_form_inputs.innerHTML = '<input type="hidden" name="pedal_id" value="' + this.dataset.pedalId + '"/>';
-        knob_form_inputs.innerHTML += '<input type="hidden" name="knob_key" value="' + this.dataset.knobKey + '"/>';
-        knob_form_inputs.innerHTML += '<input type="hidden" name="value" value="' + e.target.value + '"/>';
-        knob_form.submit();
-    });
-}
-
-var option_btns = document.querySelectorAll('.option');
-for(var i = 0; i < option_btns.length; i++) {
-    option_btns[i].addEventListener('click', function(e) {
-        var value = this.dataset.knobValue === '1' ? "0" : "1";
-        knob_form_inputs.innerHTML = '<input type="hidden" name="pedal_id" value="' + this.dataset.pedalId + '"/>';
-        knob_form_inputs.innerHTML += '<input type="hidden" name="knob_key" value="' + this.dataset.knobKey + '"/>';
-        knob_form_inputs.innerHTML += '<input type="hidden" name="value" value="' + value + '"/>';
-        knob_form.submit();
-    });
-}
-
-var text_inputs = document.querySelectorAll('.text_input');
-for(var i = 0; i < text_inputs.length; i++) {
-    text_inputs[i].addEventListener('blur', function(e) {
-        console.log(this.dataset);
-        knob_form_inputs.innerHTML = '<input type="hidden" name="pedal_id" value="' + this.dataset.pedalId + '"/>';
-        knob_form_inputs.innerHTML += '<input type="hidden" name="knob_key" value="' + this.dataset.knobKey + '"/>';
-        knob_form_inputs.innerHTML += '<input type="hidden" name="value" value="' + e.target.value + '"/>';
-        knob_form.submit();
-    });
-}
-})();
-</script>
+    <script src="/assets/main.js"></script>
 </body>
 </html>
