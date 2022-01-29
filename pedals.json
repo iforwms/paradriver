@@ -1,0 +1,410 @@
+{
+  "data": [
+    {
+      "id": "hartke_500",
+      "name": "Bass Amp",
+      "type": "amp",
+      "indicator_colour": "#fff",
+      "background_colour": "#282a2e",
+      "label_colour": "#fff",
+      "knobs": [
+        [
+          {
+            "label": "Shape",
+            "key": "shape"
+          },
+          {
+            "label": "Bass",
+            "key": "bass"
+          },
+          {
+            "label": "Mid",
+            "key": "mid"
+          },
+          {
+            "label": "Treble",
+            "key": "treble"
+          }
+        ]
+      ],
+      "options": [
+        {
+          "label": "Shape On",
+          "key": "shape_on"
+        }
+      ],
+      "pickup_selector": false
+    },
+    {
+      "id": "fender_strat",
+      "name": "Fender Strat",
+      "type": "guitar",
+      "indicator_colour": "#c8c188",
+      "background_colour": "#f6f0d6",
+      "label_colour": "#4a433c",
+      "knobs": [
+        [
+          {
+            "label": "Volume",
+            "key": "neck_pickup"
+          },
+          {
+            "label": "Tone",
+            "key": "bridge_pickup"
+          },
+          {
+            "label": "Tone",
+            "key": "tone"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": true
+    },
+    {
+      "id": "wah",
+      "name": "Wah",
+      "type": "wah",
+      "indicator_colour": "#000",
+      "background_colour": "#000",
+      "label_colour": "#000",
+      "knobs": [],
+      "options": [],
+      "pickup_selector": false
+    },
+    {
+      "id": "mxr87",
+      "name": "MXR Compressor",
+      "type": "compressor",
+      "indicator_colour": "#fff",
+      "background_colour": "#fff",
+      "label_colour": "#000",
+      "knobs": [
+        [
+          {
+            "label": "Release",
+            "key": "release"
+          },
+          {
+            "label": "Attack",
+            "key": "attack"
+          }
+        ],
+        [
+          {
+            "label": "Ratio",
+            "key": "ratio"
+          }
+        ],
+        [
+          {
+            "label": "Output",
+            "key": "output"
+          },
+          {
+            "label": "Input",
+            "key": "input"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": false
+    },
+    {
+      "id": "paradriver",
+      "name": "Para Driver DI",
+      "type": "di",
+      "indicator_colour": "#f3c200",
+      "background_colour": "#282a2e",
+      "label_colour": "#f3c200",
+      "knobs": [
+        [
+          {
+            "label": "Level",
+            "key": "level"
+          },
+          {
+            "label": "Treble",
+            "key": "treble"
+          },
+          {
+            "label": "Mid",
+            "key": "mid"
+          },
+          {
+            "label": "Bass",
+            "key": "bass"
+          },
+          {
+            "label": "Drive",
+            "key": "drive"
+          }
+        ],
+        [
+          {
+            "label": "Blend",
+            "key": "blend"
+          },
+          {
+            "label": "Mid Shift",
+            "key": "mid_shift"
+          }
+        ]
+      ],
+      "options": [
+        {
+          "label": "Rumble Filter",
+          "key": "rumble"
+        },
+        {
+          "label": "Air",
+          "key": "air"
+        }
+      ],
+      "pickup_selector": false
+    },
+    {
+      "id": "acoustic",
+      "name": "Acoustic",
+      "type": "guitar",
+      "indicator_colour": "#a45610",
+      "background_colour": "radial-gradient(#eec795, #c88f5c)",
+      "label_colour": "#301803",
+      "knobs": [
+        [
+          {
+            "label": "Volume",
+            "key": "volume"
+          },
+          {
+            "label": "Tone",
+            "key": "tone"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": false
+    },
+    {
+      "id": "fender_jazz",
+      "name": "Fender Jazz Bass",
+      "type": "guitar",
+      "indicator_colour": "#a45610",
+      "background_colour": "radial-gradient(#ff5400, #974a04)",
+      "label_colour": "#301803",
+      "knobs": [
+        [
+          {
+            "label": "Neck",
+            "key": "neck"
+          },
+          {
+            "label": "Bridge",
+            "key": "bridge"
+          },
+          {
+            "label": "Tone",
+            "key": "tone"
+          }
+        ]
+      ],
+      "options": [
+        {
+          "label": "Humbucker",
+          "key": "humbucker"
+        },
+        {
+          "label": "Sponge",
+          "key": "sponge"
+        }
+      ],
+      "pickup_selector": false
+    },
+    {
+      "id": "marshall_cab",
+      "name": "Marshall Cabinet Simulator",
+      "type": "amp",
+      "indicator_colour": "#fffc3c",
+      "background_colour": "#282a2e",
+      "label_colour": "#fffc3c",
+      "knobs": [
+        [
+          {
+            "label": "Treble",
+            "key": "treble"
+          },
+          {
+            "label": "Mid",
+            "key": "mid"
+          },
+          {
+            "label": "Bass",
+            "key": "bass"
+          }
+        ],
+        [
+          {
+            "label": "Volume",
+            "key": "volume"
+          },
+          {
+            "label": "Gain",
+            "key": "gain"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": false
+    },
+    {
+      "id": "marshall_clean",
+      "name": "Marshall Clean Channel",
+      "type": "amp",
+      "indicator_colour": "#2379ff",
+      "background_colour": "#282a2e",
+      "label_colour": "#2379ff",
+      "knobs": [
+        [
+          {
+            "label": "Treble",
+            "key": "treble"
+          },
+          {
+            "label": "Mid",
+            "key": "mid"
+          },
+          {
+            "label": "Bass",
+            "key": "bass"
+          }
+        ],
+        [
+          {
+            "label": "Volume",
+            "key": "volume"
+          },
+          {
+            "label": "Gain",
+            "key": "gain"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": false
+    },
+    {
+      "id": "marshall_dirty",
+      "name": "Marshall Dirty Channel",
+      "type": "amp",
+      "indicator_colour": "#fb3232",
+      "background_colour": "#282a2e",
+      "label_colour": "#fb3232",
+      "knobs": [
+        [
+          {
+            "label": "Treble",
+            "key": "treble"
+          },
+          {
+            "label": "Mid",
+            "key": "mid"
+          },
+          {
+            "label": "Bass",
+            "key": "bass"
+          }
+        ],
+        [
+          {
+            "label": "Volume",
+            "key": "volume"
+          },
+          {
+            "label": "Gain",
+            "key": "gain"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": false
+    },
+    {
+      "id": "les_paul",
+      "name": "Les Paul Copy",
+      "type": "guitar",
+      "indicator_colour": "#fff",
+      "background_colour": "radial-gradient(#09b36b, #00240c)",
+      "label_colour": "#fff",
+      "knobs": [
+        [
+          {
+            "label": "Neck",
+            "key": "neck"
+          },
+          {
+            "label": "Bridge",
+            "key": "bridge"
+          },
+          {
+            "label": "Tone",
+            "key": "tone"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": true
+    },
+    {
+      "id": "mooer_delay",
+      "name": "Mooer Delay",
+      "type": "delay",
+      "indicator_colour": "#ffa500",
+      "background_colour": "#282a2e",
+      "label_colour": "#ffa500",
+      "knobs": [
+        [
+          {
+            "label": "Tone",
+            "key": "tone"
+          },
+          {
+            "label": "Decay",
+            "key": "decay"
+          }],
+          [{
+            "label": "Mix",
+            "key": "mix"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": false
+    },
+    {
+      "id": "mooer_reverb",
+      "name": "Mooer Reverb",
+      "type": "reverb",
+      "indicator_colour": "#0abd0a",
+      "background_colour": "#282a2e",
+      "label_colour": "#0abd0a",
+      "knobs": [
+        [
+          {
+            "label": "Tone",
+            "key": "tone"
+          },
+          {
+            "label": "Decay",
+            "key": "decay"
+          }],
+          [{
+            "label": "Mix",
+            "key": "mix"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": false
+    }
+  ]
+}

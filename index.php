@@ -49,8 +49,8 @@
                         <input type="hidden" value="<?= $query_song['filename'] ?? "" ?>" name="filename"/>
                         <select name="pedal" id="add_pedal">
                             <option disabled selected>Add a Pedal</option>
-                            <?php foreach($pedals as $id => $name): ?>
-                                <option value="<?= $id ?>|<?= $name ?>"><?= $name ?></option>
+                            <?php foreach($pedals as $pedal): ?>
+                                <option value="<?= $pedal->id ?>"><?= $pedal->name ?></option>
                             <?php endforeach ?>
                         </select>
                     </form>
@@ -58,23 +58,20 @@
             </div>
 
             <div style="padding: 1em 1em 0; display: flex; flex-wrap: wrap;">
-                <?php foreach ($query_song["chain"] as $pedal): ?>
-                    <?php if (file_exists(__DIR__ . "/templates/pedals/{$pedal["id"]}.blade.php")): ?>
+                <?php foreach ($query_song["chain"] as $pedal_settings): ?>
+                    <?php $pedal = lookup($pedal_settings) ?>
                         <div style="margin-bottom: 1em;">
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-right: 1em;">
-                                <h4 class="pedal_name"><?= $pedal['name']; ?></h4>
+                                <h4 class="pedal_name"><?= $pedal->name ?></h4>
                                 <form action="/?song=<?= $query_song['name'] ?>" method="POST">
                                     <input type="hidden" value="remove" name="action"/>
-                                    <input type="hidden" value="<?= $pedal['id'] ?>" name="pedal_id"/>
+                                    <input type="hidden" value="<?= $pedal->id ?>" name="pedal_id"/>
                                     <input type="hidden" value="<?= $query_song['filename'] ?? "" ?>" name="filename"/>
                                     <button class="btn" style="padding: .25em; background-color: transparent; color: red;">&#x2715</button>
                                 </form>
                             </div>
-                            <?php include __DIR__ .  "/templates/pedals/{$pedal["id"]}.blade.php" ?>
+                            <?php include __DIR__ .  "/templates/pedal.blade.php" ?>
                         </div>
-                    <?php else: ?>
-                        <?php include __DIR__ . "/templates/pedals/missing.blade.php" ?>
-                    <?php endif ?>
                 <?php endforeach ?>
             </div>
         </div>

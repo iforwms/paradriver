@@ -19,27 +19,28 @@ function sort_chain(array $chain) {
     ksort($unique);
     return array_values($unique);
 }
-function setting(array $pedal, string $name, $default = 0) {
-    return isset($pedal['settings'][$name]) ? $pedal['settings'][$name] : $default;
+function setting(object $pedal, string $key, $default = 0) {
+    return isset($pedal->settings[$key]) ? $pedal->settings[$key] : $default;
 }
 
 const PEDAL_ORDER = [
     'hartke_500', 'fender_strat', 'les_paul', 'fender_jazz', 'acoustic', 'wah', 'mxr87', 'paradriver', 'marshall_clean', 'marshall_dirty', 'marshall_cab', 'mooer_delay', 'mooer_reverb',
 ];
-$db_path = __DIR__ . "/db";
-$db = array_values(array_diff(scandir($db_path), ['.', '..', '.gitkeep']));
+
+$DB_PATH = __DIR__ . "/db";
+$db = array_values(array_diff(scandir($DB_PATH), ['.', '..', '.gitkeep']));
 
 if(isset($_POST) && isset($_POST['action']) && $_POST['action'] === 'create' && isset($_POST['name']) && $_POST['name'] && !in_array($_POST['name'] . ".json", $db)) {
     $new_preset = [
         'name' => $name = ucwords($_POST['name']),
         'chain' => [],
     ];
-    file_put_contents("{$db_path}/{$_POST['name']}.json", json_encode($new_preset));
+    file_put_contents("{$DB_PATH}/{$_POST['name']}.json", json_encode($new_preset));
     header("Location: /?song={$name}");
 }
 elseif(isset($_POST) && isset($_POST['filename'])){
-    if(file_exists("{$db_path}/{$_POST['filename']}")) {
-        $song_data = json_decode(file_get_contents("{$db_path}/{$_POST['filename']}"), true);
+    if(file_exists("{$DB_PATH}/{$_POST['filename']}")) {
+        $song_data = json_decode(file_get_contents("{$DB_PATH}/{$_POST['filename']}"), true);
         switch($_POST['action']) {
             case "update":
                 foreach($song_data['chain'] as $index => $pedal) {
@@ -48,10 +49,8 @@ elseif(isset($_POST) && isset($_POST['filename'])){
                 }
                 break;
             case "add":
-                $pedal_data = explode("|", $_POST['pedal']);
                 $song_data['chain'][] = [
-                    'id' => $pedal_data[0],
-                    'name' => $pedal_data[1],
+                    'id' => $_POST['pedal'],
                 ];
                 break;
             case "remove":
@@ -63,21 +62,33 @@ elseif(isset($_POST) && isset($_POST['filename'])){
                 dd("Unsupported action.");
         }
         $song_data['chain'] = sort_chain($song_data['chain']);
-        file_put_contents("{$db_path}/{$_POST['filename']}", json_encode($song_data));
+        file_put_contents("{$DB_PATH}/{$_POST['filename']}", json_encode($song_data));
     }
 }
 
-$pedals = [];
+$pedals = json_decode(file_get_contents(__DIR__ . "/pedals.json"))->data;
+
+function lookup($pedal_settings) {
+    global $pedals;
+    $search = array_values(array_filter($pedals, function($item) use ($pedal_settings) {
+        return $item->id === $pedal_settings['id'];
+    }));
+    if(!count($search)) {
+        throw new Exception("Pedal not found.");
+    }
+    $pedal = $search[0];
+    $pedal->settings = $pedal_settings['settings'] ?? [];
+    return $pedal;
+}
+
+/* dd($pedals); */
+
 $data = [];
 foreach($db as $song) {
-    $song_data = json_decode(file_get_contents("{$db_path}/{$song}"), true);
+    $song_data = json_decode(file_get_contents("{$DB_PATH}/{$song}"), true);
     $song_data['filename'] = $song;
     $data[] = $song_data;
-    foreach($song_data['chain'] as $pedal) {
-        $pedals[$pedal['id']] = $pedal['name'];
-    }
 }
-ksort($pedals);
 $query_song = $data[0];
 if(isset($_GET['song'])) {
     $songs = array_values(array_filter($data, function($item) {
@@ -88,8 +99,9 @@ if(isset($_GET['song'])) {
     }
 }
 
-foreach($query_song['chain'] as $pedal) {
-    unset($pedals[$pedal['id']]);
-}
-unset($pedals['']);
-
+// TODO Fix
+/* foreach($query_song['chain'] as $pedal) { */
+/*     unset($pedals[$pedal['id']]); */
+/* } */
+/* unset($pedals['']); */
+/* dd($pedals); */
