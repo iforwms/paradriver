@@ -29,7 +29,15 @@ const PEDAL_ORDER = [
 $db_path = __DIR__ . "/db";
 $db = array_values(array_diff(scandir($db_path), ['.', '..', '.gitkeep']));
 
-if(isset($_POST) && isset($_POST['filename'])){
+if(isset($_POST) && isset($_POST['action']) && $_POST['action'] === 'create' && isset($_POST['name']) && $_POST['name'] && !in_array($_POST['name'] . ".json", $db)) {
+    $new_preset = [
+        'name' => $name = ucwords($_POST['name']),
+        'chain' => [],
+    ];
+    file_put_contents("{$db_path}/{$_POST['name']}.json", json_encode($new_preset));
+    header("Location: /?song={$name}");
+}
+elseif(isset($_POST) && isset($_POST['filename'])){
     if(file_exists("{$db_path}/{$_POST['filename']}")) {
         $song_data = json_decode(file_get_contents("{$db_path}/{$_POST['filename']}"), true);
         switch($_POST['action']) {
@@ -83,6 +91,7 @@ if(isset($_GET['song'])) {
 foreach($query_song['chain'] as $pedal) {
     unset($pedals[$pedal['id']]);
 }
+unset($pedals['']);
 ?>
 
 <!doctype html>
@@ -111,6 +120,15 @@ foreach($query_song['chain'] as $pedal) {
 
     <div class="menu">
         <button class="menu_btn" id="toggle_menu">MENU</button>
+
+        <div class="create_new_preset_container">
+            <form action="/?song=<?= $query_song['name'] ?>" method="POST">
+                <input type="hidden" name="action" value="create"/>
+                <input type="text" placeholder="Enter filename" name="name"/>
+                <button class="btn new_preset_btn" id="new_preset_btn">Add</button>
+            </form>
+        </div>
+
         <ul>
         <?php foreach($data as $song): ?>
             <li><a href="<?= "/?song={$song['name']}" ?>"><?= $song['name'] ?></a></li>
@@ -242,6 +260,17 @@ btn.addEventListener('click', function() {
     document.body.classList.toggle('show_menu');
 });
 
+var pickup_ranges = document.querySelectorAll('.pickup_range');
+for(var i = 0; i < pickup_ranges.length; i++) {
+    pickup_ranges[i].addEventListener('change', function(e) {
+        /* console.log(e.target.value, this.dataset); */
+        knob_form_inputs.innerHTML = '<input type="hidden" name="pedal_id" value="' + this.dataset.pedalId + '"/>';
+        knob_form_inputs.innerHTML += '<input type="hidden" name="knob_key" value="' + this.dataset.knobKey + '"/>';
+        knob_form_inputs.innerHTML += '<input type="hidden" name="value" value="' + e.target.value + '"/>';
+        knob_form.submit();
+    });
+}
+
 var option_btns = document.querySelectorAll('.option');
 for(var i = 0; i < option_btns.length; i++) {
     option_btns[i].addEventListener('click', function(e) {
@@ -253,29 +282,16 @@ for(var i = 0; i < option_btns.length; i++) {
     });
 }
 
-/* var knobs = document.querySelectorAll('.knob'); */
-/* var mini_form = document.getElementById('mini_form'); */
-/* var mini_form_close = document.getElementById('mini_form_close'); */
-/* var value_input = document.getElementById('value_input'); */
-/* mini_form_close.addEventListener('click', function() { */
-/*     mini_form.classList.add('hidden'); */
-/* }); */
-/* var submit_btn = document.getElementById('submit_btn'); */
-/* submit_btn.addEventListener('click', function() { */
-/*     mini_form.classList.add('hidden'); */
-/* }); */
-/* for(var i = 0; i < knobs.length; i++) { */
-/*     knobs[i].addEventListener('click', function(e) { */
-/*         mini_form_inputs.innerHTML = '<input type="hidden" name="pedal_id" value="' + this.dataset.pedalId + '"/>'; */
-/*         mini_form_inputs.innerHTML += '<input type="hidden" name="knob_key" value="' + this.dataset.knobKey + '"/>'; */
-/*         value_input.type = 'number'; */
-/*         value_input.setAttribute('min', 0); */
-/*         value_input.setAttribute('max', 350); */
-/*         value_input.setAttribute('step', 10); */
-/*         value_input.value = this.dataset.knobValue; */
-/*         mini_form.classList.remove('hidden'); */
-/*     }); */
-/* } */
+var text_inputs = document.querySelectorAll('.text_input');
+for(var i = 0; i < text_inputs.length; i++) {
+    text_inputs[i].addEventListener('blur', function(e) {
+        console.log(this.dataset);
+        knob_form_inputs.innerHTML = '<input type="hidden" name="pedal_id" value="' + this.dataset.pedalId + '"/>';
+        knob_form_inputs.innerHTML += '<input type="hidden" name="knob_key" value="' + this.dataset.knobKey + '"/>';
+        knob_form_inputs.innerHTML += '<input type="hidden" name="value" value="' + e.target.value + '"/>';
+        knob_form.submit();
+    });
+}
 })();
 </script>
 </body>

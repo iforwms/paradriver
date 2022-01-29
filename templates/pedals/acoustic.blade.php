@@ -2,8 +2,7 @@
 <div class="pedal_container">
     <div class="pedal" style="background: <?= $background ?>; border-color: <?= $knob_colour ?>">
         <div class="knob_container">
-            <?php $title = "Neck"; $key = 'neck_pickup'; include __DIR__ . "/../knob.blade.php"; ?>
-            <?php $title = "Bridge"; $key = 'bridge_pickup'; include __DIR__ . "/../knob.blade.php"; ?>
+            <?php $title = "Volume"; $key = 'volume'; include __DIR__ . "/../knob.blade.php"; ?>
             <?php $title = "Tone"; $key = 'tone'; include __DIR__ . "/../knob.blade.php"; ?>
         </div>
     </div>

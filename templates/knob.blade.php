@@ -7,8 +7,6 @@
         data-knob-value="<?= $value; ?>"
         data-color="<?= $indicator_colour ?>"
         class="knob"
-    >
-    <!-- <div class="indicator" style="<?= isset($indicator_colour) ? "background-color: $indicator_colour;" : ""; ?>"></div>-->
-    </div>
+        ></div>
 </div>
 

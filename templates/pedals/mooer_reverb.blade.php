@@ -9,10 +9,7 @@
             <?php $title = "Mix"; $key = 'mix'; include __DIR__ . "/../knob.blade.php"; ?>
         </div>
         <div class="knob_container">
-            <div class="effect">
-                <label class="knob_label" style="color: <?= $label_colour ?>">Tempo</label>
-                <div style="color: <?= $label_colour ?>; font-weight: normal; font-size: .9em; padding: 3px 6px; border: 1px solid <?= $indicator_colour ?>; border-radius: 3px;"><?= setting($pedal, 'tempo') ?></div>
-            </div>
+            <?php $title = "Tempo"; $key = 'tempo'; include __DIR__ . "/../text.blade.php"; ?>
         </div>
     </div>
 </div>
