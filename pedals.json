@@ -62,6 +62,89 @@
       "pickup_selector": true
     },
     {
+      "id": "les_paul",
+      "name": "Les Paul Copy",
+      "type": "guitar",
+      "indicator_colour": "#fff",
+      "background_colour": "radial-gradient(#09b36b, #00240c)",
+      "label_colour": "#fff",
+      "knobs": [
+        [
+          {
+            "label": "Neck",
+            "key": "neck"
+          },
+          {
+            "label": "Bridge",
+            "key": "bridge"
+          },
+          {
+            "label": "Tone",
+            "key": "tone"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": true
+    },
+    {
+      "id": "fender_jazz",
+      "name": "Fender Jazz Bass",
+      "type": "guitar",
+      "indicator_colour": "#a45610",
+      "background_colour": "radial-gradient(#ff5400, #974a04)",
+      "label_colour": "#301803",
+      "knobs": [
+        [
+          {
+            "label": "Neck",
+            "key": "neck"
+          },
+          {
+            "label": "Bridge",
+            "key": "bridge"
+          },
+          {
+            "label": "Tone",
+            "key": "tone"
+          }
+        ]
+      ],
+      "options": [
+        {
+          "label": "Humbucker",
+          "key": "humbucker"
+        },
+        {
+          "label": "Sponge",
+          "key": "sponge"
+        }
+      ],
+      "pickup_selector": false
+    },
+    {
+      "id": "acoustic",
+      "name": "Acoustic",
+      "type": "guitar",
+      "indicator_colour": "#a45610",
+      "background_colour": "radial-gradient(#eec795, #c88f5c)",
+      "label_colour": "#301803",
+      "knobs": [
+        [
+          {
+            "label": "Volume",
+            "key": "volume"
+          },
+          {
+            "label": "Tone",
+            "key": "tone"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": false
+    },
+    {
       "id": "wah",
       "name": "Wah",
       "type": "wah",
@@ -163,63 +246,7 @@
       ],
       "pickup_selector": false
     },
-    {
-      "id": "acoustic",
-      "name": "Acoustic",
-      "type": "guitar",
-      "indicator_colour": "#a45610",
-      "background_colour": "radial-gradient(#eec795, #c88f5c)",
-      "label_colour": "#301803",
-      "knobs": [
-        [
-          {
-            "label": "Volume",
-            "key": "volume"
-          },
-          {
-            "label": "Tone",
-            "key": "tone"
-          }
-        ]
-      ],
-      "options": [],
-      "pickup_selector": false
-    },
-    {
-      "id": "fender_jazz",
-      "name": "Fender Jazz Bass",
-      "type": "guitar",
-      "indicator_colour": "#a45610",
-      "background_colour": "radial-gradient(#ff5400, #974a04)",
-      "label_colour": "#301803",
-      "knobs": [
-        [
-          {
-            "label": "Neck",
-            "key": "neck"
-          },
-          {
-            "label": "Bridge",
-            "key": "bridge"
-          },
-          {
-            "label": "Tone",
-            "key": "tone"
-          }
-        ]
-      ],
-      "options": [
-        {
-          "label": "Humbucker",
-          "key": "humbucker"
-        },
-        {
-          "label": "Sponge",
-          "key": "sponge"
-        }
-      ],
-      "pickup_selector": false
-    },
+
     {
       "id": "marshall_cab",
       "name": "Marshall Cabinet Simulator",
@@ -328,32 +355,7 @@
       "options": [],
       "pickup_selector": false
     },
-    {
-      "id": "les_paul",
-      "name": "Les Paul Copy",
-      "type": "guitar",
-      "indicator_colour": "#fff",
-      "background_colour": "radial-gradient(#09b36b, #00240c)",
-      "label_colour": "#fff",
-      "knobs": [
-        [
-          {
-            "label": "Neck",
-            "key": "neck"
-          },
-          {
-            "label": "Bridge",
-            "key": "bridge"
-          },
-          {
-            "label": "Tone",
-            "key": "tone"
-          }
-        ]
-      ],
-      "options": [],
-      "pickup_selector": true
-    },
+
     {
       "id": "mooer_delay",
       "name": "Mooer Delay",
@@ -370,8 +372,10 @@
           {
             "label": "Decay",
             "key": "decay"
-          }],
-          [{
+          }
+        ],
+        [
+          {
             "label": "Mix",
             "key": "mix"
           }
@@ -396,8 +400,10 @@
           {
             "label": "Decay",
             "key": "decay"
-          }],
-          [{
+          }
+        ],
+        [
+          {
             "label": "Mix",
             "key": "mix"
           }
