@@ -24,7 +24,7 @@ function setting(object $pedal, string $key, $default = 0) {
 }
 
 const PEDAL_ORDER = [
-    'hartke_500', 'fender_strat', 'les_paul', 'fender_jazz', 'acoustic', 'wah', 'mxr87', 'paradriver', 'marshall_clean', 'marshall_dirty', 'marshall_cab', 'mooer_delay', 'mooer_reverb',
+    'hartke_500', 'fender_strat', 'les_paul', 'fender_jazz', 'acoustic', 'wah', 'mxr87', 'paradriver', 'marshall_clean', 'marshall_dirty', 'marshall_cab', 'mooer_delay', 'mooer_reverb', 'big_sky',
 ];
 
 $DB_PATH = __DIR__ . "/db";

@@ -194,6 +194,55 @@
       "pickup_selector": false
     },
     {
+      "id": "big_sky",
+      "name": "Strymon Big Sky",
+      "type": "reverb",
+      "indicator_colour": "#ffffff",
+      "background_colour": "#09aacb",
+      "label_colour": "#ffffff",
+      "show_notes": true,
+      "knobs": [
+        [
+          {
+            "label": "Value",
+            "key": "value"
+          },
+          {
+            "label": "Decay",
+            "key": "decay"
+          },
+          {
+            "label": "Pre Delay",
+            "key": "pre_delay"
+          },
+          {
+            "label": "Mix",
+            "key": "mix"
+          }
+        ],
+        [
+          {
+            "label": "Tone",
+            "key": "tone"
+          },
+          {
+            "label": "Param 1",
+            "key": "param_1"
+          },
+          {
+            "label": "Param 2",
+            "key": "param_2"
+          },
+          {
+            "label": "Mod",
+            "key": "mod"
+          }
+        ]
+      ],
+      "options": [
+      ],
+      "pickup_selector": false
+    },{
       "id": "paradriver",
       "name": "Para Driver DI",
       "type": "di",
@@ -406,6 +455,42 @@
           {
             "label": "Mix",
             "key": "mix"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": false
+    },
+    {
+      "id": "mxr_filter",
+      "name": "MXR Envelope Filter",
+      "type": "filter",
+      "indicator_colour": "#ffffff",
+      "background_colour": "#534b7c",
+      "label_colour": "#ffffff",
+      "knobs": [
+        [
+          {
+            "label": "Dry",
+            "key": "dry"
+          },
+          {
+            "label": "FX",
+            "key": "fx"
+          }
+        ],
+        [
+          {
+            "label": "Decay",
+            "key": "decay"
+          },
+          {
+            "label": "Q",
+            "key": "q"
+          },
+          {
+            "label": "Sens.",
+            "key": "sensitivity"
           }
         ]
       ],

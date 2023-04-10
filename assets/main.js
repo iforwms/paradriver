@@ -60,5 +60,15 @@ for(var i = 0; i < text_inputs.length; i++) {
         knob_form.submit();
     });
 }
+
+var note_inputs = document.querySelectorAll('.notes');
+for(var i = 0; i < note_inputs.length; i++) {
+    note_inputs[i].addEventListener('blur', function(e) {
+        knob_form_inputs.innerHTML = '<input type="hidden" name="pedal_id" value="' + this.dataset.pedalId + '"/>';
+        knob_form_inputs.innerHTML += '<input type="hidden" name="knob_key" value="' + this.dataset.knobKey + '"/>';
+        knob_form_inputs.innerHTML += '<input type="hidden" name="value" value="' + e.target.value + '"/>';
+        knob_form.submit();
+    });
+}
 })();
 

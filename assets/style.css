@@ -363,3 +363,20 @@ h1 {
     border-color: #079255;
     border-radius: 3px;
 }
+
+.notes_container {
+  margin-top: 1em;
+  width: 100%;
+}
+
+.notes {
+  background-color: #fff;
+  border: 1px solid #09aacbb5;
+  padding: .75em;
+  color: #000;
+  border-radius: .5em;
+  width: 100%;
+  font-family: sans-serif;
+  font-size: .7em;
+  width: 100%;
+}

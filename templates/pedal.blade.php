@@ -30,6 +30,12 @@
             <?php include __DIR__ . "/pickup_selector.blade.php" ?>
         </div>
         <?php endif ?>
+
+        <?php if(property_exists($pedal, "show_notes")): ?>
+        <div class="notes_container">
+            <?php include __DIR__ . "/notes.blade.php" ?>
+        </div>
+        <?php endif ?>
     </div>
     <?php endif ?>
 </div>
