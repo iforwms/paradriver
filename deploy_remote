@@ -1,12 +1,6 @@
 #!/bin/bash
 
-echo "Running git pull..."
-ssh clients 'git -C /home/ifor/code/pedal_board pull'
-
-# echo "Building CSS..."
-# npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify
-
-# echo "Copying dist files to server..."
-# scp -r dist clients:/home/ifor/code/year_planner
+echo "Deploying remote files.."
+$DOTFILES/scripts/deploy_remote /Users/ifor/code/pedal_board/ clients:/home/ifor/code/pedal_board "" "db;.env;.phpunit.result.cache;*.log;.git;.gitignore;.DS_Store;deploy_remote;tags;vendor;node_modules"
 
 echo "Deploy complete!"

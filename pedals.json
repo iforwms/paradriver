@@ -239,10 +239,10 @@
           }
         ]
       ],
-      "options": [
-      ],
+      "options": [],
       "pickup_selector": false
-    },{
+    },
+    {
       "id": "paradriver",
       "name": "Para Driver DI",
       "type": "di",
@@ -467,7 +467,7 @@
       "type": "filter",
       "indicator_colour": "#ffffff",
       "background_colour": "#534b7c",
-      "label_colour": "#ffffff",
+      "label_colour": "#c1bbe3",
       "knobs": [
         [
           {

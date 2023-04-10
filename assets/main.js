@@ -1,5 +1,12 @@
 (function() {
 
+var popup = document.getElementById('popup');
+if(popup) {
+    setTimeout(function() {
+        popup.remove();
+    }, 3000);
+}
+
 var knob_form = document.getElementById('knob_form');
 var knob_form_inputs = document.getElementById('knob_form_inputs');
 var knobs = document.querySelectorAll('.knob');

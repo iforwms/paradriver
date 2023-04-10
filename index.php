@@ -31,11 +31,15 @@
         </div>
 
         <ul>
-        <?php foreach($data as $song): ?>
-            <li><a href="<?= "/?song={$song['name']}" ?>"><?= $song['name'] ?></a></li>
-        <?php endforeach ?>
+            <?php foreach($data as $song): ?>
+                <li><a href="<?= "/?song={$song['name']}" ?>"><?= $song['name'] ?> (<?= count($song['chain']) ?>)</a></li>
+            <?php endforeach ?>
         </ul>
     </div>
+
+    <?php if($updated): ?>
+        <div id="popup" class="popup">Changes saved!</div>
+    <?php endif ?>
 
     <h1>Ifor's Pedal Board</h1>
 
@@ -48,9 +52,13 @@
                         <input type="hidden" value="add" name="action"/>
                         <input type="hidden" value="<?= $query_song['filename'] ?? "" ?>" name="filename"/>
                         <select name="pedal" id="add_pedal">
-                            <option disabled selected>Add a Pedal</option>
-                            <?php foreach($pedals as $pedal): ?>
-                                <option value="<?= $pedal->id ?>"><?= $pedal->name ?></option>
+                            <option disabled selected>Add to Chain</option>
+                            <?php foreach($pedal_dropdown as $type => $pedals_list): ?>
+                            <optgroup label="<?= str_replace('Di', 'DI', ucwords($type)) ?>s">
+                                <?php foreach($pedals_list as $pedal_item): ?>
+                                    <option value="<?= $pedal_item->id ?>"><?= $pedal_item->name ?></option>
+                                <?php endforeach ?>
+                                </optgroup>
                             <?php endforeach ?>
                         </select>
                     </form>

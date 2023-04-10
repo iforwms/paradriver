@@ -151,9 +151,9 @@ form {
   border-radius: 50%;
   cursor: ew-resize;
   box-shadow: 0 0 2px 0 #555;
-  transition: background .3s ease-in-out;
+  transition: background 0.3s ease-in-out;
 }
-.pickup_selector input[type=range]::-webkit-slider-runnable-track  {
+.pickup_selector input[type="range"]::-webkit-slider-runnable-track {
   -webkit-appearance: none;
   box-shadow: none;
   border: none;
@@ -174,7 +174,7 @@ form {
   border-radius: 3px;
 }
 .menu ul {
-  margin-top: .5em;
+  margin-top: 0.5em;
   margin-bottom: 0;
   list-style-type: none;
   padding: 0;
@@ -290,15 +290,23 @@ form {
 }
 .setup_name h3 {
   margin: 0;
+  font-size: 0.9em;
+}
+#add_pedal_form {
+  width: 100%;
+  margin-top: 1em;
+}
+#add_pedal_form select {
+  width: 100%;
 }
 select {
-  padding: .5em .5em;
+  padding: 0.5em 0.5em;
   border: none;
   border-radius: 3px;
   background-color: #fff;
 }
 .setup_name {
-  display: flex;
+  display: block;
   justify-content: space-between;
   align-items: center;
   padding: 1em;
@@ -308,6 +316,17 @@ select {
   text-transform: uppercase;
   font-size: 1.1em;
   margin-bottom: 0.25em;
+}
+@media (min-width: 568px) {
+  .setup_name {
+    display: flex;
+  }
+  .setup_name h3 {
+    font-size: 1.1em;
+  }
+  #add_pedal_form {
+    margin-top: 0;
+  }
 }
 .wah_outer {
   border-top: 180px solid #cecece;
@@ -346,22 +365,22 @@ h1 {
   margin: 1em 0;
 }
 .create_new_preset_container {
-    margin-top: 2.5em;
+  margin-top: 2.5em;
 }
 .create_new_preset_container form {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 }
 .create_new_preset_container input {
-    width: 162px;
+  width: 162px;
 }
 .new_preset_btn {
-    margin-left: .5em;
-    white-space: nowrap;
-    background-color: #fff;
-    color: #079255;
-    border-color: #079255;
-    border-radius: 3px;
+  margin-left: 0.5em;
+  white-space: nowrap;
+  background-color: #fff;
+  color: #079255;
+  border-color: #079255;
+  border-radius: 3px;
 }
 
 .notes_container {
@@ -372,11 +391,23 @@ h1 {
 .notes {
   background-color: #fff;
   border: 1px solid #09aacbb5;
-  padding: .75em;
+  padding: 0.75em;
   color: #000;
-  border-radius: .5em;
+  border-radius: 0.5em;
   width: 100%;
   font-family: sans-serif;
-  font-size: .7em;
+  font-size: 0.7em;
   width: 100%;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 0.5em;
+  background-color: #eaa41d;
+  color: #fff;
+  border-radius: 0 0 0 0.5em;
+  font-size: 0.8em;
+  font-weight: lighter;
 }
