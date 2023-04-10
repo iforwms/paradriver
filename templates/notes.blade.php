@@ -3,6 +3,7 @@
     <label class="knob_label" style="color: <?= $pedal->label_colour ?>">Notes</label>
     <div>
         <textarea
+        rows="5"
         data-knob-key="notes"
         data-pedal-id="<?= $pedal->id ?>"
         data-knob-value="<?= $value; ?>"
