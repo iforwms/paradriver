@@ -421,3 +421,9 @@ h1 {
   font-size: 0.8em;
   font-weight: lighter;
 }
+.break-flex-row {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1em;
+  flex-basis: 100%;
+  height: 0;
+}

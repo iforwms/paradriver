@@ -2,6 +2,7 @@
   "data": [
     {
       "id": "hartke_500",
+      "row": 0,
       "name": "Bass Amp",
       "type": "amp",
       "indicator_colour": "#fff",
@@ -37,6 +38,7 @@
     },
     {
       "id": "fender_strat",
+      "row": 0,
       "name": "Fender Strat",
       "type": "guitar",
       "indicator_colour": "#c8c188",
@@ -63,6 +65,7 @@
     },
     {
       "id": "les_paul",
+      "row": 0,
       "name": "Les Paul Copy",
       "type": "guitar",
       "indicator_colour": "#fff",
@@ -89,6 +92,7 @@
     },
     {
       "id": "fender_jazz",
+      "row": 0,
       "name": "Fender Jazz Bass",
       "type": "guitar",
       "indicator_colour": "#a45610",
@@ -124,6 +128,7 @@
     },
     {
       "id": "acoustic",
+      "row": 0,
       "name": "Acoustic",
       "type": "guitar",
       "indicator_colour": "#a45610",
@@ -146,6 +151,7 @@
     },
     {
       "id": "wah",
+      "row": 2,
       "name": "Wah",
       "type": "wah",
       "indicator_colour": "#000",
@@ -157,6 +163,7 @@
     },
     {
       "id": "mxr_compressor",
+      "row": 1,
       "name": "MXR Compressor",
       "type": "compressor",
       "indicator_colour": "#fff",
@@ -195,6 +202,7 @@
     },
     {
       "id": "big_sky",
+      "row": 2,
       "name": "Strymon Big Sky",
       "type": "reverb",
       "indicator_colour": "#ffffff",
@@ -244,6 +252,7 @@
     },
     {
       "id": "paradriver",
+      "row": 1,
       "name": "Para Driver DI",
       "type": "di",
       "indicator_colour": "#f3c200",
@@ -298,6 +307,7 @@
 
     {
       "id": "marshall_cab",
+      "row": 2,
       "name": "Marshall Cabinet Simulator",
       "type": "amp",
       "indicator_colour": "#fffc3c",
@@ -334,6 +344,7 @@
     },
     {
       "id": "marshall_clean",
+      "row": 2,
       "name": "Marshall Clean Channel",
       "type": "amp",
       "indicator_colour": "#2379ff",
@@ -370,6 +381,7 @@
     },
     {
       "id": "marshall_dirty",
+      "row": 2,
       "name": "Marshall Dirty Channel",
       "type": "amp",
       "indicator_colour": "#fb3232",
@@ -407,6 +419,7 @@
 
     {
       "id": "mooer_delay",
+      "row": 2,
       "name": "Mooer Delay",
       "type": "delay",
       "indicator_colour": "#ffa500",
@@ -435,6 +448,7 @@
     },
     {
       "id": "mooer_reverb",
+      "row": 2,
       "name": "Mooer Reverb",
       "type": "reverb",
       "indicator_colour": "#0abd0a",
@@ -463,6 +477,7 @@
     },
     {
       "id": "mxr_filter",
+      "row": 1,
       "name": "MXR Envelope Filter",
       "type": "modulation",
       "indicator_colour": "#ffffff",
@@ -499,6 +514,7 @@
     },
     {
       "id": "mxr_octave",
+      "row": 1,
       "name": "MXR Bass Octave Deluxe",
       "type": "modulation",
       "indicator_colour": "#a9c7ff",
@@ -532,6 +548,7 @@
     },
     {
       "id": "mxr_chorus",
+      "row": 1,
       "name": "MXR Bass Chorus Deluxe",
       "type": "modulation",
       "indicator_colour": "#9ae1e1",
