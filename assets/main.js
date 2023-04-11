@@ -28,8 +28,13 @@
         '"/>';
       knob_form_inputs.innerHTML +=
         '<input type="hidden" name="value" value="' + e.target.value + '"/>';
-      knob_form.submit();
+      submitForm(this.parentElement.dataset.pedalId);
     });
+  }
+
+  function submitForm(pedal_id) {
+    knob_form.action += "#" + pedal_id;
+    knob_form.submit();
   }
 
   var add_pedal = document.getElementById("add_pedal");
@@ -53,7 +58,7 @@
         '"/>';
       knob_form_inputs.innerHTML +=
         '<input type="hidden" name="value" value="' + e.target.value + '"/>';
-      knob_form.submit();
+      submitForm(this.dataset.pedalId);
     });
   }
 
@@ -71,7 +76,7 @@
         '"/>';
       knob_form_inputs.innerHTML +=
         '<input type="hidden" name="value" value="' + value + '"/>';
-      knob_form.submit();
+      submitForm(this.dataset.pedalId);
     });
   }
 
@@ -88,7 +93,7 @@
         '"/>';
       knob_form_inputs.innerHTML +=
         '<input type="hidden" name="value" value="' + e.target.value + '"/>';
-      knob_form.submit();
+      submitForm(this.dataset.pedalId);
     });
   }
 
@@ -105,7 +110,7 @@
         '"/>';
       knob_form_inputs.innerHTML +=
         '<input type="hidden" name="value" value="' + e.target.value + '"/>';
-      knob_form.submit();
+      submitForm(this.dataset.pedalId);
     });
   }
 })();

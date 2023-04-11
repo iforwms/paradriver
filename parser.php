@@ -57,8 +57,8 @@ $db = array_values(array_diff(scandir($DB_PATH), [".", "..", ".gitkeep"]));
 
 if (
     isset($_POST) &&
-    isset($_POST["action"]) &&
-    $_POST["action"] === "create" &&
+    isset($_POST["form_action"]) &&
+    $_POST["form_action"] === "create" &&
     isset($_POST["name"]) &&
     $_POST["name"] &&
     !in_array($_POST["name"] . ".json", $db)
@@ -78,7 +78,7 @@ if (
             file_get_contents("{$DB_PATH}/{$_POST["filename"]}"),
             true
         );
-        switch ($_POST["action"]) {
+        switch ($_POST["form_action"]) {
             case "update":
                 foreach ($song_data["chain"] as $index => $pedal) {
                     if ($pedal["id"] !== $_POST["pedal_id"]) {

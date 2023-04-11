@@ -24,7 +24,7 @@
 
         <div class="create_new_preset_container">
             <form action="/?song=<?= $query_song['name'] ?>" method="POST">
-                <input type="hidden" name="action" value="create"/>
+                <input type="hidden" name="form_action" value="create"/>
                 <input type="text" placeholder="Enter song_name" name="name"/>
                 <button class="btn new_preset_btn" id="new_preset_btn">Add</button>
             </form>
@@ -52,7 +52,7 @@
                 <?php if($unused_pedal_count): ?>
                     <div style="">
                         <form id="add_pedal_form" action="/?song=<?= $query_song['name'] ?>" method="POST">
-                            <input type="hidden" value="add" name="action"/>
+                            <input type="hidden" value="add" name="form_action"/>
                             <input type="hidden" value="<?= $query_song['filename'] ?? "" ?>" name="filename"/>
                             <select name="pedal" id="add_pedal">
                                 <option disabled selected>Add to Chain</option>
@@ -72,11 +72,11 @@
             <div style="padding: 1em 1em 0; display: flex; flex-wrap: wrap;">
                 <?php foreach ($query_song["chain"] as $pedal_settings): ?>
                     <?php $pedal = lookup($pedal_settings) ?>
-                        <div style="margin-bottom: 1em;">
+                    <div id="<?= $pedal->id ?>" style="margin-bottom: 1em;">
                             <div style="display: flex; justify-content: space-between; margin-bottom: .25em; align-items: center; margin-right: 1em;">
                                 <h4 class="pedal_name"><?= $pedal->name ?></h4>
                                 <form action="/?song=<?= $query_song['name'] ?>" method="POST">
-                                    <input type="hidden" value="remove" name="action"/>
+                                    <input type="hidden" value="remove" name="form_action"/>
                                     <input type="hidden" value="<?= $pedal->id ?>" name="pedal_id"/>
                                     <input type="hidden" value="<?= $query_song['filename'] ?? "" ?>" name="filename"/>
                                     <?php if($query_song['name'] !== 'ALL'): ?>
@@ -95,7 +95,7 @@
                 <div id="mini_form_close" class="mini_form_close_btn">&#x2715</div>
                 <div id="mini_form_inputs"></div>
                 <input class="value_input" name="value" id="value_input"/>
-                <input type="hidden" value="update" name="action"/>
+                <input type="hidden" value="update" name="form_action"/>
                 <input type="hidden" value="<?= $query_song['filename'] ?? "" ?>" name="filename"/>
                 <button class="btn" id="submit_btn">Update</button>
             </form>
@@ -103,7 +103,7 @@
 
         <form id="knob_form" class="hidden" action="/?song=<?= $query_song['name'] ?>" method="POST">
             <div id="knob_form_inputs"></div>
-            <input type="hidden" value="update" name="action"/>
+            <input type="hidden" value="update" name="form_action"/>
             <input type="hidden" value="<?= $query_song['filename'] ?? "" ?>" name="filename"/>
         </form>
 
