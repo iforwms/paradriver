@@ -156,7 +156,7 @@
       "pickup_selector": false
     },
     {
-      "id": "mxr87",
+      "id": "mxr_compressor",
       "name": "MXR Compressor",
       "type": "compressor",
       "indicator_colour": "#fff",
@@ -464,7 +464,7 @@
     {
       "id": "mxr_filter",
       "name": "MXR Envelope Filter",
-      "type": "filter",
+      "type": "modulation",
       "indicator_colour": "#ffffff",
       "background_colour": "#534b7c",
       "label_colour": "#c1bbe3",
@@ -495,6 +495,84 @@
         ]
       ],
       "options": [],
+      "pickup_selector": false
+    },
+    {
+      "id": "mxr_octave",
+      "name": "MXR Bass Octave Deluxe",
+      "type": "modulation",
+      "indicator_colour": "#a9c7ff",
+      "background_colour": "#14397d",
+      "label_colour": "#a9c7ff",
+      "knobs": [
+        [
+          {
+            "label": "Dry",
+            "key": "dry"
+          }
+        ],
+        [
+          {
+            "label": "Growl",
+            "key": "growl"
+          },
+          {
+            "label": "Girth",
+            "key": "girth"
+          }
+        ]
+      ],
+      "options": [
+        {
+          "label": "Mid+",
+          "key": "mid_plus"
+        }
+      ],
+      "pickup_selector": false
+    },
+    {
+      "id": "mxr_chorus",
+      "name": "MXR Bass Chorus Deluxe",
+      "type": "modulation",
+      "indicator_colour": "#9ae1e1",
+      "background_colour": "#028687",
+      "label_colour": "#9ae1e1",
+      "knobs": [
+        [
+          {
+            "label": "Bass",
+            "key": "bass"
+          },
+          {
+            "label": "Treble",
+            "key": "treble"
+          }
+        ],
+        [
+          {
+            "label": "Intensity",
+            "key": "intensity"
+          },
+          {
+            "label": "Rate",
+            "key": "rate"
+          },
+          {
+            "label": "Width",
+            "key": "width"
+          }
+        ]
+      ],
+      "options": [
+        {
+          "label": "X-Over",
+          "key": "crossover"
+        },
+        {
+          "label": "Flanger",
+          "key": "flanger"
+        }
+      ],
       "pickup_selector": false
     }
   ]
