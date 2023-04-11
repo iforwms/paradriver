@@ -40,11 +40,6 @@
     });
   }
 
-  var btn = document.getElementById("toggle_menu");
-  btn.addEventListener("click", function () {
-    document.body.classList.toggle("show_menu");
-  });
-
   var pickup_ranges = document.querySelectorAll(".pickup_range");
   for (var i = 0; i < pickup_ranges.length; i++) {
     pickup_ranges[i].addEventListener("change", function (e) {

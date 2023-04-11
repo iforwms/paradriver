@@ -139,6 +139,16 @@
         </form>
     <?php endif ?>
 
-    <script src="/assets/main.js"></script>
+    <script>
+    (function() {
+      var btn = document.getElementById("toggle_menu");
+      btn.addEventListener("click", function () {
+        document.body.classList.toggle("show_menu");
+      });
+    })();
+    </script>
+    <?php if($query_song['name'] !== 'ALL'): ?>
+        <script src="/assets/main.js"></script>
+    <?php endif ?>
 </body>
 </html>
