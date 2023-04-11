@@ -185,18 +185,22 @@ form {
   padding: 0;
 }
 .menu ul li {
-  overflow-x: hidden;
-  text-overflow: ellipsis;
   font-size: 0.9em;
-  padding: 0.5em;
   background-color: #eee;
   border-radius: 3px;
   margin: 0.25em 0;
   white-space: nowrap;
 }
 .menu li a {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  display: block;
   color: #555;
+  padding: 0.5em;
   text-decoration: none;
+}
+.menu li a:hover {
+  color: #000;
 }
 .option + .option {
   margin-left: 1em;
@@ -283,6 +287,7 @@ form {
 }
 .pedal_name {
   margin: 0;
+  margin-left: 1em;
   /* margin-top: 0.5em; */
   /* margin-bottom: 0.5em; */
   font-size: 0.8em;

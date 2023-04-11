@@ -31,6 +31,7 @@
         </div>
 
         <ul>
+            <li style="margin-top: 1em; margin-bottom: 2em;"><a href="<?= "/" ?>">All Items</a></li>
             <?php foreach($data as $song): ?>
                 <li><a href="<?= "/?song={$song['name']}" ?>"><?= $song['name'] ?> (<?= count($song['chain']) ?>)</a></li>
             <?php endforeach ?>
@@ -72,13 +73,15 @@
                 <?php foreach ($query_song["chain"] as $pedal_settings): ?>
                     <?php $pedal = lookup($pedal_settings) ?>
                         <div style="margin-bottom: 1em;">
-                            <div style="display: flex; justify-content: space-between; align-items: center; margin-right: 1em;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: .25em; align-items: center; margin-right: 1em;">
                                 <h4 class="pedal_name"><?= $pedal->name ?></h4>
                                 <form action="/?song=<?= $query_song['name'] ?>" method="POST">
                                     <input type="hidden" value="remove" name="action"/>
                                     <input type="hidden" value="<?= $pedal->id ?>" name="pedal_id"/>
                                     <input type="hidden" value="<?= $query_song['filename'] ?? "" ?>" name="filename"/>
-                                    <button class="btn" style="padding: .25em; background-color: transparent; color: red;">&#x2715</button>
+                                    <?php if($query_song['name'] !== 'ALL'): ?>
+                                        <button class="btn" style="padding: .25em; padding-bottom: 0; background-color: transparent; color: red;">&#x2715</button>
+                                    <?php endif ?>
                                 </form>
                             </div>
                             <?php include __DIR__ .  "/templates/pedal.blade.php" ?>

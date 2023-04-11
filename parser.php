@@ -139,7 +139,11 @@ foreach ($db as $song) {
     $song_data["filename"] = $song;
     $data[] = $song_data;
 }
-$query_song = $data[0];
+
+$query_song = [
+    "name" => "ALL",
+    "chain" => array_map(fn($i) => ["id" => $i->id], $pedals),
+];
 if (isset($_GET["song"])) {
     $songs = array_values(
         array_filter($data, function ($item) {
