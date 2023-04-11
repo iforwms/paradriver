@@ -116,13 +116,6 @@ if (
 
 $pedals = json_decode(file_get_contents(__DIR__ . "/pedals.json"))->data;
 usort($pedals, fn($a, $b) => strcmp($a->type, $b->type));
-$pedal_dropdown = [];
-foreach ($pedals as $pedal) {
-    if (!isset($pedal_dropdown[$pedal->type])) {
-        $pedal_dropdown[$pedal->type] = [];
-    }
-    $pedal_dropdown[$pedal->type][] = $pedal;
-}
 
 function lookup($pedal_settings)
 {
@@ -158,9 +151,16 @@ if (isset($_GET["song"])) {
     }
 }
 
-// TODO Fix
-/* foreach($query_song['chain'] as $pedal) { */
-/*     unset($pedals[$pedal['id']]); */
-/* } */
-/* unset($pedals['']); */
-/* dd($pedals); */
+$pedal_dropdown = [];
+$unused_pedal_count = 0;
+$chain_ids = array_map(fn($item) => $item["id"], $query_song["chain"]);
+foreach ($pedals as $pedal) {
+    if (in_array($pedal->id, $chain_ids)) {
+        continue;
+    }
+    if (!isset($pedal_dropdown[$pedal->type])) {
+        $pedal_dropdown[$pedal->type] = [];
+    }
+    $pedal_dropdown[$pedal->type][] = $pedal;
+    $unused_pedal_count++;
+}

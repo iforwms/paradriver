@@ -47,22 +47,25 @@
         <div class="setup_container">
             <div class="setup_name">
                 <h3><?= $query_song["name"] ?><?= isset($query_song['time_Signature']) ? " - {$query_song['time_Signature']}" : "" ?><?= isset($query_song['tempo']) ? " - {$query_song['tempo']} bpm" : "" ?></h3>
-                <div style="">
-                    <form id="add_pedal_form" action="/?song=<?= $query_song['name'] ?>" method="POST">
-                        <input type="hidden" value="add" name="action"/>
-                        <input type="hidden" value="<?= $query_song['filename'] ?? "" ?>" name="filename"/>
-                        <select name="pedal" id="add_pedal">
-                            <option disabled selected>Add to Chain</option>
-                            <?php foreach($pedal_dropdown as $type => $pedals_list): ?>
-                            <optgroup label="<?= str_replace('Di', 'DI', ucwords($type)) ?>s">
-                                <?php foreach($pedals_list as $pedal_item): ?>
-                                    <option value="<?= $pedal_item->id ?>"><?= $pedal_item->name ?></option>
+
+                <?php if($unused_pedal_count): ?>
+                    <div style="">
+                        <form id="add_pedal_form" action="/?song=<?= $query_song['name'] ?>" method="POST">
+                            <input type="hidden" value="add" name="action"/>
+                            <input type="hidden" value="<?= $query_song['filename'] ?? "" ?>" name="filename"/>
+                            <select name="pedal" id="add_pedal">
+                                <option disabled selected>Add to Chain</option>
+                                <?php foreach($pedal_dropdown as $type => $pedals_list): ?>
+                                <optgroup label="<?= str_replace('Di', 'DI', ucwords($type)) ?>s">
+                                    <?php foreach($pedals_list as $pedal_item): ?>
+                                        <option value="<?= $pedal_item->id ?>"><?= $pedal_item->name ?></option>
+                                    <?php endforeach ?>
+                                    </optgroup>
                                 <?php endforeach ?>
-                                </optgroup>
-                            <?php endforeach ?>
-                        </select>
-                    </form>
-                </div>
+                            </select>
+                        </form>
+                    </div>
+                <?php endif ?>
             </div>
 
             <div style="padding: 1em 1em 0; display: flex; flex-wrap: wrap;">
