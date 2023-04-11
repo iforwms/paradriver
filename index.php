@@ -25,7 +25,7 @@
         <div class="create_new_preset_container">
             <form action="/?song=<?= $query_song['name'] ?>" method="POST">
                 <input type="hidden" name="action" value="create"/>
-                <input type="text" placeholder="Enter filename" name="name"/>
+                <input type="text" placeholder="Enter song_name" name="name"/>
                 <button class="btn new_preset_btn" id="new_preset_btn">Add</button>
             </form>
         </div>

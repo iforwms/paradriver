@@ -134,6 +134,10 @@ form {
   transition: margin 0.3s;
   margin-left: -240px;
 }
+.menu_btn:hover {
+  color: #333;
+  border-color: #333;
+}
 .show_menu .menu {
   margin-left: 0;
 }
@@ -166,7 +170,8 @@ form {
   top: 0;
   left: 0;
   outline: none;
-  border: 1px solid #ccc;
+  border: 1px solid #777;
+  color: #777;
   padding: 0.5em;
   opacity: 0.7;
   margin: 8px;
