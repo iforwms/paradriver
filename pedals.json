@@ -514,7 +514,7 @@
     },
     {
       "id": "mxr_octave",
-      "row": 1,
+      "row": 2,
       "name": "MXR Bass Octave Deluxe",
       "type": "modulation",
       "indicator_colour": "#a9c7ff",
@@ -548,7 +548,7 @@
     },
     {
       "id": "mxr_chorus",
-      "row": 1,
+      "row": 2,
       "name": "MXR Bass Chorus Deluxe",
       "type": "modulation",
       "indicator_colour": "#9ae1e1",
