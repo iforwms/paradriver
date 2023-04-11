@@ -6,6 +6,18 @@
     }, 3000);
   }
 
+  var remove_pedal_forms = document.querySelectorAll(".remove_pedal_form");
+  for (var i = 0; i < remove_pedal_forms.length; i++) {
+    remove_pedal_forms[i].addEventListener("submit", function (e) {
+      e.preventDefault();
+      var confirm = window.confirm(
+        "Are you sure you want to remove this item?"
+      );
+      if (!confirm) return;
+      e.target.submit();
+    });
+  }
+
   var knob_form = document.getElementById("knob_form");
   var knob_form_inputs = document.getElementById("knob_form_inputs");
   var knobs = document.querySelectorAll(".knob");
@@ -40,7 +52,7 @@
   var add_pedal = document.getElementById("add_pedal");
   if (add_pedal) {
     var add_pedal_form = document.getElementById("add_pedal_form");
-    add_pedal.addEventListener("change", function (e) {
+    add_pedal.addEventListener("change", function () {
       add_pedal_form.submit();
     });
   }
@@ -64,7 +76,7 @@
 
   var option_btns = document.querySelectorAll(".option");
   for (var i = 0; i < option_btns.length; i++) {
-    option_btns[i].addEventListener("click", function (e) {
+    option_btns[i].addEventListener("click", function () {
       var value = this.dataset.knobValue === "1" ? "0" : "1";
       knob_form_inputs.innerHTML =
         '<input type="hidden" name="pedal_id" value="' +

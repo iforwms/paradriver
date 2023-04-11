@@ -75,7 +75,7 @@
                     <div id="<?= $pedal->id ?>" style="margin-bottom: 1em;">
                             <div style="display: flex; justify-content: space-between; margin-bottom: .25em; align-items: center; margin-right: 1em;">
                                 <h4 class="pedal_name"><?= $pedal->name ?></h4>
-                                <form action="/?song=<?= $query_song['name'] ?>" method="POST">
+                                <form class="remove_pedal_form" action="/?song=<?= $query_song['name'] ?>" method="POST">
                                     <input type="hidden" value="remove" name="form_action"/>
                                     <input type="hidden" value="<?= $pedal->id ?>" name="pedal_id"/>
                                     <input type="hidden" value="<?= $query_song['filename'] ?? "" ?>" name="filename"/>
