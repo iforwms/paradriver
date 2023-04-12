@@ -114,14 +114,25 @@ if (
     }
 }
 
-$pedals = json_decode(file_get_contents(__DIR__ . "/pedals.json"))->data;
-usort($pedals, fn($a, $b) => strcmp($a->type, $b->type));
+$all_pedals = json_decode(file_get_contents(__DIR__ . "/pedals.json"))->data;
+$pedals = array_filter(
+    $all_pedals,
+    fn($item) => $item->active
+);
+function comp($a, $b)
+{
+    if ($a->row === $b->row) {
+        return $a->col - $b->col;
+    }
+    return strcmp($a->row, $b->row);
+}
+usort($pedals, "comp");
 
 function lookup($pedal_settings)
 {
-    global $pedals;
+    global $all_pedals;
     $search = array_values(
-        array_filter($pedals, function ($item) use ($pedal_settings) {
+        array_filter($all_pedals, function ($item) use ($pedal_settings) {
             return $item->id === $pedal_settings["id"];
         })
     );
