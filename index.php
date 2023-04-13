@@ -71,7 +71,7 @@
 
             <div style="padding: 1em 1em 0; display: flex; flex-wrap: wrap;">
                 <?php foreach ($query_song["chain"] as $index => $pedal_settings): ?>
-                    <?php $pedal = lookup($pedal_settings) ?>
+                    <?php $pedal = lookup($pedal_settings, $all_pedals) ?>
                     <div id="<?= $pedal->id ?>" style="margin-bottom: 1em;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: .25em; align-items: center; margin-right: 1em;">
                             <h4 class="pedal_name"><?= $pedal->name ?></h4>
@@ -89,7 +89,7 @@
                     <?php if(
                         property_exists($pedal, 'row') &&
                         $index < count($query_song['chain']) -1 &&
-                        $pedal->row !== lookup($query_song['chain'][$index + 1])->row
+                        $pedal->row !== lookup($query_song['chain'][$index + 1], $all_pedals)->row
                     ): ?>
                         <div class="break-flex-row"> </div>
                     <?php endif ?>

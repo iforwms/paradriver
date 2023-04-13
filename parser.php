@@ -1,148 +1,18 @@
 <?php
 
-$updated = false;
-
-function dd(...$args)
-{
-    echo "<pre>";
-    var_dump($args);
-    die();
-}
-
-function sort_chain(array $chain)
-{
-    $unique = [];
-    foreach ($chain as $pedal) {
-        $index = array_search($pedal["id"], PEDAL_ORDER);
-        $in_array = count(
-            array_filter($unique, function ($item) use ($pedal) {
-                return $item["id"] === $pedal["id"];
-            })
-        );
-        if ($in_array) {
-            continue;
-        }
-        $unique[$index] = $pedal;
-    }
-    ksort($unique);
-    return array_values($unique);
-}
-function setting(object $pedal, string $key, $default = 0)
-{
-    return isset($pedal->settings[$key]) ? $pedal->settings[$key] : $default;
-}
-
-const PEDAL_ORDER = [
-    "hartke_500",
-    "acoustic",
-    "fender_jazz",
-    "les_paul",
-    "fender_strat",
-    "paradriver",
-    "mxr_compressor",
-    "mxr_filter",
-    "big_sky",
-    "mooer_reverb",
-    "mooer_delay",
-    "marshall_cab",
-    "marshall_dirty",
-    "marshall_clean",
-    "mxr_chorus",
-    "mxr_octave",
-    "wah",
-];
+require_once __DIR__ ."/helpers.php";
 
 $DB_PATH = __DIR__ . "/db";
 $db = array_values(array_diff(scandir($DB_PATH), [".", "..", ".gitkeep"]));
-
-if (
-    isset($_POST) &&
-    isset($_POST["form_action"]) &&
-    $_POST["form_action"] === "create" &&
-    isset($_POST["name"]) &&
-    $_POST["name"] &&
-    !in_array($_POST["name"] . ".json", $db)
-) {
-    $new_preset = [
-        "name" => ($name = ucwords($_POST["name"])),
-        "chain" => [],
-    ];
-    file_put_contents(
-        "{$DB_PATH}/{$_POST["name"]}.json",
-        json_encode($new_preset)
-    );
-    header("Location: /?song={$name}");
-} elseif (isset($_POST) && isset($_POST["filename"])) {
-    if (file_exists("{$DB_PATH}/{$_POST["filename"]}")) {
-        $song_data = json_decode(
-            file_get_contents("{$DB_PATH}/{$_POST["filename"]}"),
-            true
-        );
-        switch ($_POST["form_action"]) {
-            case "update":
-                foreach ($song_data["chain"] as $index => $pedal) {
-                    if ($pedal["id"] !== $_POST["pedal_id"]) {
-                        continue;
-                    }
-                    $song_data["chain"][$index]["settings"][
-                        $_POST["knob_key"]
-                    ] = $_POST["value"];
-                }
-                break;
-            case "add":
-                $song_data["chain"][] = [
-                    "id" => $_POST["pedal"],
-                ];
-                break;
-            case "remove":
-                $song_data["chain"] = array_filter(
-                    $song_data["chain"],
-                    function ($item) {
-                        return $item["id"] !== $_POST["pedal_id"];
-                    }
-                );
-                break;
-            default:
-                dd("Unsupported action.");
-        }
-        $song_data["chain"] = sort_chain($song_data["chain"]);
-        file_put_contents(
-            "{$DB_PATH}/{$_POST["filename"]}",
-            json_encode($song_data)
-        );
-        $updated = true;
-    }
-}
-
 $all_pedals = json_decode(file_get_contents(__DIR__ . "/pedals.json"))->data;
+
 $pedals = array_filter(
     $all_pedals,
     fn($item) => $item->active
 );
-function comp($a, $b)
-{
-    if ($a->row === $b->row) {
-        return $a->col - $b->col;
-    }
-    return strcmp($a->row, $b->row);
-}
-usort($pedals, "comp");
-
-function lookup($pedal_settings)
-{
-    global $all_pedals;
-    $search = array_values(
-        array_filter($all_pedals, function ($item) use ($pedal_settings) {
-            return $item->id === $pedal_settings["id"];
-        })
-    );
-    if (!count($search)) {
-        throw new Exception("Pedal not found.");
-    }
-    $pedal = $search[0];
-    $pedal->settings = $pedal_settings["settings"] ?? [];
-    return $pedal;
-}
+usort($pedals, "pedal_sort_func");
+usort($all_pedals, "pedal_sort_func");
+$pedal_order = array_map(fn($item) => $item->id, $all_pedals);
 
 $data = [];
 foreach ($db as $song) {
@@ -179,3 +49,5 @@ foreach ($pedals as $pedal) {
     $pedal_dropdown[$pedal->type][] = $pedal;
     $unused_pedal_count++;
 }
+
+require_once __DIR__ . "/handle_post.php";
