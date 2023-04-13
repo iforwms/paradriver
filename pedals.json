@@ -440,7 +440,45 @@
       "options": [],
       "pickup_selector": false
     },
-
+    {
+      "id": "wampler_tumnus",
+      "row": 2,
+      "col": 2,
+      "active": false,
+      "name": "Wampler Tumnus Deluxe",
+      "type": "overdrive",
+      "indicator_colour": "#ffffff",
+      "background_colour": "#ab9068",
+      "label_colour": "#000000",
+      "knobs": [
+        [
+          {
+            "label": "Bass",
+            "key": "bass"
+          },
+          {
+            "label": "Mids",
+            "key": "mid"
+          },
+          {
+            "label": "Treble",
+            "key": "treble"
+          }
+        ],
+        [
+          {
+            "label": "Level",
+            "key": "level"
+          },
+          {
+            "label": "Gain",
+            "key": "gain"
+          }
+        ]
+      ],
+      "options": [{ "label": "Hot", "key": "hot" }],
+      "pickup_selector": false
+    },
     {
       "id": "mooer_delay",
       "row": 2,
