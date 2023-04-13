@@ -14,6 +14,8 @@ usort($pedals, "pedal_sort_func");
 usort($all_pedals, "pedal_sort_func");
 $pedal_order = array_map(fn($item) => $item->id, $all_pedals);
 
+require_once __DIR__ . "/handle_post.php";
+
 $data = [];
 foreach ($db as $song) {
     $song_data = json_decode(file_get_contents("{$DB_PATH}/{$song}"), true);
@@ -50,4 +52,3 @@ foreach ($pedals as $pedal) {
     $unused_pedal_count++;
 }
 
-require_once __DIR__ . "/handle_post.php";
