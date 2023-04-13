@@ -47,6 +47,14 @@ function lookup($pedal_settings, $all_pedals)
         })
     );
     if (!count($search)) {
+        return (object) [
+            "name" => "Missing Pedal ({$pedal_settings["id"]})",
+            "type" => "MISSING",
+            "knobs" => [],
+            "options" => [],
+            "pickup_selector" => false,
+            "row" => 1,
+        ];
         throw new Exception("Pedal not found.");
     }
     $pedal = $search[0];

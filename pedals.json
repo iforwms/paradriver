@@ -215,14 +215,118 @@
       "pickup_selector": false
     },
     {
-      "id": "big_sky",
+      "id": "big_sky_1",
       "row": 2,
       "col": 1,
       "active": true,
-      "name": "Strymon Big Sky",
+      "name": "Strymon Big Sky #1",
       "type": "reverb",
       "indicator_colour": "#ffffff",
-      "background_colour": "#09aacb",
+      "background_colour": "#10b1d2",
+      "label_colour": "#ffffff",
+      "show_notes": true,
+      "knobs": [
+        [
+          {
+            "label": "Value",
+            "key": "value"
+          },
+          {
+            "label": "Decay",
+            "key": "decay"
+          },
+          {
+            "label": "Pre Delay",
+            "key": "pre_delay"
+          },
+          {
+            "label": "Mix",
+            "key": "mix"
+          }
+        ],
+        [
+          {
+            "label": "Tone",
+            "key": "tone"
+          },
+          {
+            "label": "Param 1",
+            "key": "param_1"
+          },
+          {
+            "label": "Param 2",
+            "key": "param_2"
+          },
+          {
+            "label": "Mod",
+            "key": "mod"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": false
+    },
+    {
+      "id": "big_sky_2",
+      "row": 2,
+      "col": 1,
+      "active": true,
+      "name": "Strymon Big Sky #2",
+      "type": "reverb",
+      "indicator_colour": "#ffffff",
+      "background_colour": "#0894b0",
+      "label_colour": "#ffffff",
+      "show_notes": true,
+      "knobs": [
+        [
+          {
+            "label": "Value",
+            "key": "value"
+          },
+          {
+            "label": "Decay",
+            "key": "decay"
+          },
+          {
+            "label": "Pre Delay",
+            "key": "pre_delay"
+          },
+          {
+            "label": "Mix",
+            "key": "mix"
+          }
+        ],
+        [
+          {
+            "label": "Tone",
+            "key": "tone"
+          },
+          {
+            "label": "Param 1",
+            "key": "param_1"
+          },
+          {
+            "label": "Param 2",
+            "key": "param_2"
+          },
+          {
+            "label": "Mod",
+            "key": "mod"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": false
+    },
+    {
+      "id": "big_sky_3",
+      "row": 2,
+      "col": 1,
+      "active": true,
+      "name": "Strymon Big Sky #3",
+      "type": "reverb",
+      "indicator_colour": "#ffffff",
+      "background_colour": "#067f97",
       "label_colour": "#ffffff",
       "show_notes": true,
       "knobs": [
