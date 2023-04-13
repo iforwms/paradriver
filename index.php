@@ -146,16 +146,9 @@
         </form>
     <?php endif ?>
 
-    <script>
-    (function() {
-      var btn = document.getElementById("toggle_menu");
-      btn.addEventListener("click", function () {
-        document.body.classList.toggle("show_menu");
-      });
-    })();
-    </script>
-    <?php if($query_song['name'] !== 'ALL'): ?>
-        <script src="/assets/main.js"></script>
+    <?php if($query_song['name'] === 'ALL'): ?>
+        <div id="show_all_pedals"></div>
     <?php endif ?>
+    <script src="/assets/main.js"></script>
 </body>
 </html>

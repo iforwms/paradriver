@@ -1,4 +1,9 @@
 (function () {
+  var btn = document.getElementById("toggle_menu");
+  btn.addEventListener("click", function () {
+    document.body.classList.toggle("show_menu");
+  });
+
   var popup = document.getElementById("popup");
   if (popup) {
     setTimeout(function () {
@@ -45,6 +50,7 @@
   }
 
   function submitForm(pedal_id) {
+    if(document.getElementById('show_all_pedals')) return;
     knob_form.action += "#" + pedal_id;
     knob_form.submit();
   }
