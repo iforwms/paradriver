@@ -53,6 +53,9 @@ if (
                 dd("Unsupported action.");
         }
         $song_data["chain"] = sort_chain($song_data["chain"], $pedal_order);
+        if(!is_writeable("{$DB_PATH}/{$_POST["filename"]}")) {
+            die("{$DB_PATH}/{$_POST["filename"]} is not writeable!");
+        }
         file_put_contents(
             "{$DB_PATH}/{$_POST["filename"]}",
             json_encode($song_data)
