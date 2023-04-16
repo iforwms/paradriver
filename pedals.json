@@ -25,7 +25,7 @@
             "key": "mid"
           },
           {
-            "label": "Treble",
+            "label": "Treb",
             "key": "treble"
           }
         ]
@@ -51,7 +51,7 @@
       "knobs": [
         [
           {
-            "label": "Volume",
+            "label": "Vol",
             "key": "neck_pickup"
           },
           {
@@ -147,7 +147,7 @@
       "knobs": [
         [
           {
-            "label": "Volume",
+            "label": "Vol",
             "key": "volume"
           },
           {
@@ -175,8 +175,8 @@
     },
     {
       "id": "mxr_compressor",
-      "row": 1,
-      "col": 3,
+      "row": 2,
+      "col": 2,
       "active": true,
       "name": "MXR Compressor",
       "type": "compressor",
@@ -215,9 +215,55 @@
       "pickup_selector": false
     },
     {
+      "id": "walrus_ages",
+      "row": 1,
+      "col": 3,
+      "active": true,
+      "name": "Walrus Ages",
+      "type": "overdrive",
+      "indicator_colour": "#dadeb8",
+      "background_colour": "#687032",
+      "label_colour": "#dadeb8",
+      "show_notes": false,
+      "knobs": [
+        [
+          {
+            "label": "Vol",
+            "key": "volume"
+          },
+          {
+            "label": "Dry",
+            "key": "dry"
+          },
+          {
+            "label": "Gain",
+            "key": "gain"
+          }
+        ],
+        [
+          {
+            "label": "Bass",
+            "key": "bass"
+          },
+          {
+            "label": "Mode",
+            "key": "mode",
+            "step": 10,
+            "min": 0,
+            "max": 100
+          },
+          {
+            "label": "Treb",
+            "key": "treble"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": false
+    },{
       "id": "big_sky_1",
-      "row": 2,
-      "col": 1,
+      "row": 1,
+      "col": 2,
       "active": true,
       "name": "Strymon Big Sky #1",
       "type": "reverb",
@@ -268,8 +314,8 @@
     },
     {
       "id": "big_sky_2",
-      "row": 2,
-      "col": 1,
+      "row": 1,
+      "col": 2,
       "active": true,
       "name": "Strymon Big Sky #2",
       "type": "reverb",
@@ -320,8 +366,8 @@
     },
     {
       "id": "big_sky_3",
-      "row": 2,
-      "col": 1,
+      "row": 1,
+      "col": 2,
       "active": true,
       "name": "Strymon Big Sky #3",
       "type": "reverb",
@@ -387,7 +433,7 @@
             "key": "level"
           },
           {
-            "label": "Treble",
+            "label": "Treb",
             "key": "treble"
           },
           {
@@ -429,8 +475,8 @@
 
     {
       "id": "marshall_cab",
-      "row": 2,
-      "col": 2,
+      "row": 1,
+      "col": 3,
       "active": true,
       "name": "Marshall Cabinet Simulator",
       "type": "amp",
@@ -440,7 +486,7 @@
       "knobs": [
         [
           {
-            "label": "Treble",
+            "label": "Treb",
             "key": "treble"
           },
           {
@@ -454,7 +500,7 @@
         ],
         [
           {
-            "label": "Volume",
+            "label": "Vol",
             "key": "volume"
           },
           {
@@ -468,8 +514,8 @@
     },
     {
       "id": "marshall_clean",
-      "row": 2,
-      "col": 2,
+      "row": 1,
+      "col": 3,
       "active": true,
       "name": "Marshall Clean Channel",
       "type": "amp",
@@ -479,7 +525,7 @@
       "knobs": [
         [
           {
-            "label": "Treble",
+            "label": "Treb",
             "key": "treble"
           },
           {
@@ -493,7 +539,7 @@
         ],
         [
           {
-            "label": "Volume",
+            "label": "Vol",
             "key": "volume"
           },
           {
@@ -507,8 +553,8 @@
     },
     {
       "id": "marshall_dirty",
-      "row": 2,
-      "col": 2,
+      "row": 1,
+      "col": 3,
       "active": true,
       "name": "Marshall Dirty Channel",
       "type": "amp",
@@ -518,7 +564,7 @@
       "knobs": [
         [
           {
-            "label": "Treble",
+            "label": "Treb",
             "key": "treble"
           },
           {
@@ -532,7 +578,7 @@
         ],
         [
           {
-            "label": "Volume",
+            "label": "Vol",
             "key": "volume"
           },
           {
@@ -546,8 +592,8 @@
     },
     {
       "id": "wampler_tumnus",
-      "row": 2,
-      "col": 2,
+      "row": 1,
+      "col": 3,
       "active": false,
       "name": "Wampler Tumnus Deluxe",
       "type": "overdrive",
@@ -565,7 +611,7 @@
             "key": "mid"
           },
           {
-            "label": "Treble",
+            "label": "Treb",
             "key": "treble"
           }
         ],
@@ -647,7 +693,7 @@
     },
     {
       "id": "mxr_filter",
-      "row": 1,
+      "row": 2,
       "col": 3,
       "active": true,
       "name": "MXR Envelope Filter",
@@ -687,7 +733,7 @@
     {
       "id": "mxr_octave",
       "row": 2,
-      "col": 3,
+      "col": 4,
       "active": true,
       "name": "MXR Bass Octave Deluxe",
       "type": "modulation",
@@ -723,7 +769,7 @@
     {
       "id": "mxr_chorus",
       "row": 2,
-      "col": 4,
+      "col": 1,
       "active": true,
       "name": "MXR Bass Chorus Deluxe",
       "type": "modulation",
@@ -737,7 +783,7 @@
             "key": "bass"
           },
           {
-            "label": "Treble",
+            "label": "Treb",
             "key": "treble"
           }
         ],

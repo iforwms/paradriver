@@ -27,11 +27,12 @@
   var knob_form_inputs = document.getElementById("knob_form_inputs");
   var knobs = document.querySelectorAll(".knob");
   for (var i = 0; i < knobs.length; i++) {
+    console.log(knobs[i]);
     var knob = new PrecisionInputs.FLStandardKnob(knobs[i], {
       color: knobs[i].dataset.color,
-      min: 0,
-      max: 100,
-      step: 1,
+      min: parseInt(knobs[i].dataset.min),
+      max: parseInt(knobs[i].dataset.max),
+      step: parseInt(knobs[i].dataset.step),
       initial: parseInt(knobs[i].dataset.knobValue),
     });
     knob.addEventListener("blur", function (e) {
