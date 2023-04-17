@@ -260,7 +260,8 @@
       ],
       "options": [],
       "pickup_selector": false
-    },{
+    },
+    {
       "id": "big_sky_1",
       "row": 1,
       "col": 2,
@@ -417,6 +418,110 @@
       "pickup_selector": false
     },
     {
+      "id": "timeline_1",
+      "row": 1,
+      "col": 2,
+      "active": true,
+      "name": "Strymon Timeline #1",
+      "type": "delay",
+      "indicator_colour": "#ffffff",
+      "background_colour": "#746e78",
+      "label_colour": "#ffffff",
+      "show_notes": true,
+      "knobs": [
+        [
+          {
+            "label": "Value",
+            "key": "value"
+          },
+          {
+            "label": "Time",
+            "key": "time"
+          },
+          {
+            "label": "Repeats",
+            "key": "repeats"
+          },
+          {
+            "label": "Mix",
+            "key": "mix"
+          }
+        ],
+        [
+          {
+            "label": "Filter",
+            "key": "filter"
+          },
+          {
+            "label": "Grit",
+            "key": "grit"
+          },
+          {
+            "label": "Speed",
+            "key": "speed"
+          },
+          {
+            "label": "Depth",
+            "key": "depth"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": false
+    },
+    {
+      "id": "timeline_2",
+      "row": 1,
+      "col": 2,
+      "active": true,
+      "name": "Strymon Timeline #2",
+      "type": "delay",
+      "indicator_colour": "#ffffff",
+      "background_colour": "#5e5962",
+      "label_colour": "#ffffff",
+      "show_notes": true,
+      "knobs": [
+        [
+          {
+            "label": "Value",
+            "key": "value"
+          },
+          {
+            "label": "Time",
+            "key": "time"
+          },
+          {
+            "label": "Repeats",
+            "key": "repeats"
+          },
+          {
+            "label": "Mix",
+            "key": "mix"
+          }
+        ],
+        [
+          {
+            "label": "Filter",
+            "key": "filter"
+          },
+          {
+            "label": "Grit",
+            "key": "grit"
+          },
+          {
+            "label": "Speed",
+            "key": "speed"
+          },
+          {
+            "label": "Depth",
+            "key": "depth"
+          }
+        ]
+      ],
+      "options": [],
+      "pickup_selector": false
+    },
+    {
       "id": "paradriver",
       "row": 1,
       "col": 1,
@@ -477,7 +582,7 @@
       "id": "marshall_cab",
       "row": 1,
       "col": 3,
-      "active": true,
+      "active": false,
       "name": "Marshall Cabinet Simulator",
       "type": "amp",
       "indicator_colour": "#fffc3c",
@@ -516,7 +621,7 @@
       "id": "marshall_clean",
       "row": 1,
       "col": 3,
-      "active": true,
+      "active": false,
       "name": "Marshall Clean Channel",
       "type": "amp",
       "indicator_colour": "#2379ff",
@@ -555,7 +660,7 @@
       "id": "marshall_dirty",
       "row": 1,
       "col": 3,
-      "active": true,
+      "active": false,
       "name": "Marshall Dirty Channel",
       "type": "amp",
       "indicator_colour": "#fb3232",
