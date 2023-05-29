@@ -523,8 +523,8 @@
     },
     {
       "id": "paradriver",
-      "row": 1,
-      "col": 1,
+      "row": 2,
+      "col": 5,
       "active": true,
       "name": "Para Driver DI",
       "type": "di",
