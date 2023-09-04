@@ -1,6 +1,6 @@
 #!/bin/bash
 
 echo "Deploying remote files.."
-$DOTFILES/scripts/deploy_remote /Users/ifor/code/pedal_board/ me:/home/ifor/code/pedal_board "" "db;.env;.phpunit.result.cache;*.log;.git;.gitignore;.DS_Store;deploy_remote;tags;vendor;node_modules"
+$DOTFILES/scripts/deploy_remote /Users/ifor/code/pedal_board/ me:/home/ifor/code/pedalboard "" "db;.env;.phpunit.result.cache;*.log;.git;.gitignore;.DS_Store;deploy_remote;tags;vendor;node_modules"
 
 echo "Deploy complete!"
